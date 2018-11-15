@@ -15,6 +15,8 @@
 
     <!-- Custom styles for this template -->
     <link href="bootstrap/css/carousel.css" rel="stylesheet">
+    <!-- material icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
 
@@ -75,17 +77,53 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalCenterTitle">Student Registration</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Enter Phone number">
+          </div>
+          <div class="form-group">
+            <label for="medicalReport">Medical Report</label>
+            <input type="file" class="form-control-file" id="medicalReport" placeholder="upload medical report stating that you are blind">
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <div class="form-row">
+              <div class="col">
+                  <input type="text" class="form-control" id="location" placeholder="enter your location">
+              </div>
+              <div class="col">
+                  <i class="material-icons md-24" onclick="getLocation()">
+                      my_location
+                  </i>
+                  <input type="hidden" name="longitude" id="lat" class="hide">
+                  <input type="hidden" name="longitude" id="long" class="hide">
+              </div>
+            </div>  
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>
@@ -97,10 +135,70 @@
               <div class="carousel-caption">
                 <h1>Another example headline.</h1>
                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#schoolRegister" href="#" role="button">Register your institute</a></p>
               </div>
             </div>
           </div>
+          <!-- Modal -->
+<div class="modal fade" id="schoolRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">School Registration</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="name">School Name</label>
+            <input type="text" class="form-control" id="Sname" placeholder="Enter school name">
+          </div>
+          <div class="form-group">
+              <label for="name">School Id</label>
+              <input type="text" class="form-control" id="Sid" placeholder="Enter school id number">
+            </div>
+          <div class="form-group">
+            <label for="phone">Contact Number</label>
+            <input type="text" class="form-control" id="Scontact" placeholder="Enter contact number">
+          </div>
+          <!-- <div class="form-group">
+            <label for="medicalReport">Medical Report</label>
+            <input type="file" class="form-control-file" id="medicalReport" placeholder="upload medical report stating that you are blind">
+          </div> -->
+          <div class="form-group">
+            <label for="location">Location</label>
+            <div class="form-row">
+              <div class="col">
+                  <input type="text" class="form-control" id="Slocation" placeholder="enter your location">
+              </div>
+              <div class="col">
+                  <i class="material-icons md-24" onclick="SgetLocation()">
+                      my_location
+                  </i>
+                  <input type="hidden" name="longitude" id="Slat" class="hide">
+                  <input type="hidden" name="longitude" id="Slong" class="hide">
+              </div>
+            </div>  
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
           <div class="carousel-item">
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
             <div class="container">
@@ -203,6 +301,8 @@
         <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
     </main>
+    <!-- location script -->
+    <script src="location.js"> </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
