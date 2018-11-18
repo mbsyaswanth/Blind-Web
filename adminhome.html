@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>School Admin</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="bootstrap/css/form-validation.css">
+
+    <!-- material icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-light" style="padding-top: 5.5rem">
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-secondary border-bottom shadow fixed-top">
+                <h5 class="my-0 mr-md-auto font-weight-normal text-white">Company name</h5>
+                <nav class="my-2 my-md-0 mr-md-3">
+                  <a class="p-2 text-white" href="#">Edit/Update</a>
+                  <a class="p-2 text-white" href="#">View Page</a>
+                </nav>
+                <a class="btn btn-outline-light" onclick="signout()" href="#">Logout</a>
+        </div>
+    </header>   
+     <div class="container">
+            <div class="col-md-12 order-md-1">
+                    <h4 class="mb-3">School Details</h4>
+                    <div class="needs-validation" novalidate="">
+                      <div class="row">
+                        <div class="col-md-6 mb-3">
+                          <label for="sName">School Name</label>
+                          <input type="text" class="form-control" id="sName" placeholder="" value="" required="">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                          <label for="sId">School Id</label>
+                          <input type="text" class="form-control" id="sId" placeholder="" value="" required="">
+                        </div>
+                      </div>
+
+                      <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <label for="sEmail">School Email</label>
+                              <input type="email" class="form-control" id="sEmail" placeholder="you@example.com" value="" required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <label for="sContact">Contact Number</label>
+                              <input type="text" class="form-control" id="sContact" placeholder="" value="" required="">
+                            </div>
+                     </div>
+
+                     <div class="row">
+                            <div class="col-5 mb-3">
+                              <label for="lat">Latitude</label>
+                              <input type="text" class="form-control" id="lat" placeholder="click on location icon" value="" required="">
+                            </div>
+                            <div class="col-5 mb-3">
+                              <label for="long">Longitude</label>
+                              <input type="text" class="form-control" id="long" placeholder="click on location icon" value="" required="">
+                            </div>
+                            <div class="col-2 mb-3">
+                                <i class="material-icons md-24 text-center" style="margin-top:2.4rem" onclick="getLocation()">
+                                    my_location
+                                </i>
+                            </div>
+                     </div>
+          
+                      <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                        <div class="invalid-feedback">
+                          Please enter your address.
+                        </div>
+                      </div>
+          
+                      <div class="mb-3">
+                        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                      </div>
+          
+                      <div class="row">
+                        <div class="col-md-5 mb-3">
+                          <label for="country">Country</label>
+                          <select class="custom-select d-block w-100" id="country" required="">
+                            <option value="">Choose...</option>
+                            <option>United States</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please select a valid country.
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label for="state">State</label>
+                          <select class="custom-select d-block w-100" id="state" required="">
+                            <option value="">Choose...</option>
+                            <option>California</option>
+                          </select>
+                          <div class="invalid-feedback">
+                            Please provide a valid state.
+                          </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <label for="zip">Zip</label>
+                          <input type="text" class="form-control" id="zip" placeholder="" required="">
+                          <div class="invalid-feedback">
+                            Zip code required.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                            <label for="sphoto">Upload School Photo</label>
+                            <progress value="0" max="100" id="uploader"></progress>
+
+                                    <input type="file" class="form-control-file" id="sphoto" placeholder="" required="">
+                                
+                                    
+                                
+                            <div class="invalid-feedback">
+                              Please enter your address.
+                            </div>
+                     </div>
+                     <div class="mb-3">
+                            <label for="sdesc">School Description</label>
+                            <textarea type="text" class="form-control" id="sdesc" placeholder="A few lines about the school" required="">
+                            </textarea>    
+                            <div class="invalid-feedback">
+                              Please enter your address.
+                            </div>
+                     </div>
+
+                      <hr class="mb-4">
+          
+                      <h4 class="mb-3">Facilities</h4>
+
+                      <div class="row">
+                            <div class="d-block my-3 col-sm-3">
+                                    <label for="hostel">Hostel Available</label> 
+                                   <span id="hostel">  
+                                   <div class="custom-control custom-radio">
+                                     <input id="hyes" name="hostel" type="radio" value="yes" class="custom-control-input" required="">
+                                     <label class="custom-control-label" for="hyes">Yes</label>
+                                    </div>
+                                   <div class="custom-control custom-radio">
+                                     <input id="hno" name="hostel" type="radio" value="no" class="custom-control-input" required="">
+                                     <label class="custom-control-label" for="hno">No</label>
+                                   </div>
+                                   </span>
+                           </div>
+                           <div class="d-block my-3 col-sm-2">
+                                <label for="mess">Mess Available</label> 
+                               <span id="mess">  
+                               <div class="custom-control custom-radio">
+                                 <input id="myes" name="mess" type="radio" value="yes" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="myes">Yes</label>
+                                </div>
+                               <div class="custom-control custom-radio">
+                                 <input id="mno" name="mess" type="radio" value="no" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="mno">No</label>
+                               </div>
+                               </span>
+                           </div>
+                           <div class="d-block my-3 col-sm-2">
+                                <label for="ground">Play Ground Available</label> 
+                               <span id="ground">  
+                               <div class="custom-control custom-radio">
+                                 <input id="gyes" name="ground" type="radio" value="yes" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="gyes">Yes</label>
+                                </div>
+                               <div class="custom-control custom-radio">
+                                 <input id="gno" name="ground" type="radio" value="no" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="gno">No</label>
+                               </div>
+                               </span>
+                           </div>
+                           <div class="d-block my-3 col-sm-2">
+                                <label for="pschool">Primary School Available</label> 
+                               <span id="pschool">  
+                               <div class="custom-control custom-radio">
+                                 <input id="pyes" name="pschool" type="radio" value="yes" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="pyes">Yes</label>
+                                </div>
+                               <div class="custom-control custom-radio">
+                                 <input id="pno" name="pschool" type="radio" value="no" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="pno">No</label>
+                               </div>
+                               </span>
+                           </div>
+                           <div class="d-block my-3 col-sm-3">
+                                <label for="sschool">Secondary School Available</label> 
+                               <span id="sschool">  
+                               <div class="custom-control custom-radio">
+                                 <input id="syes" name="sschool" type="radio" value="yes" class="custom-control-input" required="">
+                                 <label class="custom-control-label" for="syes">Yes</label>
+                                </div>
+                               <div class="custom-control custom-radio">
+                                 <input id="sno" name="sschool" type="radio" class="custom-control-input" value="no" required="">
+                                 <label class="custom-control-label" for="sno">No</label>
+                               </div>
+                               </span>
+                           </div>
+
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-4 mb-3">
+                          <label for="tteachers">Number of Teachers</label>
+                          <input type="number" class="form-control" id="tteachers" placeholder="" required="">
+                          <div class="invalid-feedback">
+                            This field is required
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                          <label for="cr">Number of Class Rooms</label>
+                          <input type="number" class="form-control" id="cr" placeholder="" required="">
+                          <div class="invalid-feedback">
+                            This field is required
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                                <label for="ns">Number of Students</label>
+                                <input type="number" class="form-control" id="ns" placeholder="" required="">
+                                <div class="invalid-feedback">
+                                  This field is required
+                                </div>
+                        </div>
+                      </div>
+                      <hr class="mb-4">
+                      <button class="btn btn-primary btn-lg btn-block" onclick="update()" type="submit">Update</button>
+                    </div>
+                  </div>
+     </div>
+
+     <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+              'use strict';
+      
+              window.addEventListener('load', function() {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+      
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+    </script>
+
+     <!-- location script -->
+    <script src="location.js"> </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script src="admin.js"></script>
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/js/jquery-slim.min.js"><\/script>')</script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="bootstrap/js/holder.min.js"></script>
+</body>
+</html>
