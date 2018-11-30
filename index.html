@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,6 +16,17 @@
     <link href="bootstrap/css/carousel.css" rel="stylesheet">
     <!-- material icons  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <style>
+     .contain {
+  scroll-snap-type: y mandatory;
+}
+
+.chil {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+   </style>
+
   </head>
   <body>
 
@@ -52,9 +62,9 @@
       </nav>
     </header>
 
-    <main role="main">
+    <main class="contain" role="main">
 
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div id="myCarousel" class="carousel slide chil" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -237,11 +247,25 @@
       <!-- Marketing messaging and featurettes
       ================================================== -->
       <!-- Wrap the rest of the page in another container to center all the content. -->
-
-      <div class="container marketing">
+      <script> 
+      function loadDoc(id,file) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById(id).innerHTML = this.responseText;
+    }
+  };
+  console.log("load function called");
+  xhttp.open("GET", file, true);
+  xhttp.send();
+}
+      loadDoc('mapdata','Map/Mapdatastatic.html');
+      </script>
+      <div class="container marketing chil">
 
         <!-- Three columns of text below the carousel -->
-        <div class="row">
+        <div class="row" id="mapdata">
+          <h1>mark</h1>
           <div class="col-lg-4">
             <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
             <h2>Heading</h2>
@@ -261,8 +285,8 @@
             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
-
-
+      </div>
+      <div class="container marketing chil">
         <!-- START THE FEATURETTES -->
 
         <hr class="featurette-divider">
@@ -316,6 +340,7 @@
     </main>
     <!-- location script -->
     <script src="location.js"> </script>
+    <!-- <script src="load.js"></script> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
