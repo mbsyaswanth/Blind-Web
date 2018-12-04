@@ -13,7 +13,7 @@ function getLocation(){
     startPos = position;
     document.getElementById('lat').value = startPos.coords.latitude;
     document.getElementById('long').value = startPos.coords.longitude;
-    document.getElementById("location").value="location captured";
+   // document.getElementById("location").value="location captured";
   };
   var geoError = function(error) {
     switch(error.code) {

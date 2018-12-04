@@ -14,6 +14,30 @@
        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      </head>
 </head>
+<!-- firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+   // Initialize Firebase
+var config = {
+  apiKey: "AIzaSyB5AkS01wbDGgvFQ5k2XxMHARL4PC8yAA8",
+  authDomain: "webdemo-542bb.firebaseapp.com",
+  databaseURL: "https://webdemo-542bb.firebaseio.com",
+  projectId: "webdemo-542bb",
+  storageBucket: "webdemo-542bb.appspot.com",
+  messagingSenderId: "346052208882"
+};
+firebase.initializeApp(config);
+var database = firebase.database().ref('schools/');
+
+database.on("child_added", function(data, prevChildKey) {
+   var newSchool = data.val();
+   var card="<div class='cardi'><img class='card-img-top' src='sample.jpg' alt='Card image cap'><div class='card-body'><h5 class='card-title' style='margin-bottom:0px;'>";
+   card=card+newSchool.schoolName;
+   card+="</h5><small><i class='material-icons' style='font-size:15px;'>location_on </i>"+newSchool.district+", "+newSchool.state;
+   card+= '</small><p class="card-text">'+newSchool.sDesc+'</p><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#'+newSchool.sId+'">More Details</a></div>'; 
+   document.getElementById('hold').innerHTML+=card;  
+});
+</script>
 <style>
  .holder{
     display: flex;
@@ -29,10 +53,14 @@
     font-weight: 500;
     color: black;
  }
+ .card-text {
+    max-height: 72px;
+    overflow: hidden;
+ }
 </style>
 <body>
     
-<div class="holder">
+<div class="holder" id="hold">
 <!-- 1 -->
 <div class="cardi" >
   <img class="card-img-top" src="sample.jpg" alt="Card image cap">
@@ -44,7 +72,7 @@
     </small>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">More Details</a>
-</div>
+ </div>
       <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -505,5 +533,6 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="bootstrap/js/holder.min.js"></script>
+    
 </body>
 </html>

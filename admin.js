@@ -9,8 +9,103 @@ var config = {
   };
   firebase.initializeApp(config);
 
+
+  function loadUserData() {
+    var user=firebase.auth().currentUser;
+    //console.log(user.uid);
+    if(user) {
+      console.log("loading user data .....");
+      console.log(user);
+      // user signed in
+      var userId=user.uid;
+      console.log(userId);
+      var database = firebase.database().ref("schools/"+userId);
+      database.on("value", function(snapshot) {
+        console.log(snapshot.val());
+      
+        document.getElementById("sName").value=snapshot.val().schoolName;
+        document.getElementById("sEmail").value=user.email;
+        document.getElementById("sId").value=snapshot.val().sId;
+        document.getElementById("sContact").value=snapshot.val().phone;
+        document.getElementById("lat").value=snapshot.val().location.latitude;
+        document.getElementById("long").value=snapshot.val().location.longitude;
+        if(snapshot.val().addressL1){
+        document.getElementById("address").value=snapshot.val().addressL1;
+        document.getElementById("address2").value=snapshot.val().addressL2;
+        document.getElementById("state").value=snapshot.val().state;
+        document.getElementById("dist").value=snapshot.val().district;
+        document.getElementById("country").value=snapshot.val().country;
+        document.getElementById("zip").value=snapshot.val().zip;
+
+        document.getElementById("tteachers").value=snapshot.val().tno;
+        document.getElementById("cr").value=snapshot.val().cno;
+        document.getElementById("ns").value=snapshot.val().nos;
+        // file url needed
+        //var URL=document.getElementById("sphoto").value;
+        document.getElementById("sdesc").value=snapshot.val().sDesc;
+          if(snapshot.val().hostel=="yes"){
+            document.getElementsByName("hostel")[0].checked=true;
+          }
+          else {
+            document.getElementsByC
+          }
+
+          if(snapshot.val().mess=="yes"){
+            document.getElementsByName("mess")[0].checked=true;
+          }
+          else {
+            document.getElementsByName("mess")[1].checked=true;
+          }
+
+          if(snapshot.val().ground=="yes"){
+            document.getElementsByName("ground")[0].checked=true;
+          }
+          else {
+            document.getElementsByName("ground")[1].checked=true;
+          }
+
+          if(snapshot.val().pSchool=="yes"){
+            document.getElementsByName("pschool")[0].checked=true;
+          }
+          else {
+            document.getElementsByClassName("pschool")[1].checked=true;
+          }
+
+          if(snapshot.val().sskl=="yes"){
+            document.getElementsByName("sschool")[0].checked=true;
+          }
+          else {
+            document.getElementsByName("sschool")[1].checked=true;
+          }
+        }
+
+     }, function (error) {
+        console.log("Error: " + error.code);
+     });
+
+    } else {
+      // no user signed in
+      console.log("user not signed in");
+    }
+   }
+
+   firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      loadUserData();
+      // ...
+    } else {
+      // User is signed out.
+      // ...
+      console.log("user signin not detected");
+    }
+  });
+  
+
+   
+
   // function to send school data to database
-function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, country, zip, URL, desc, hostel, mess, ground, pskl, ss, tno, cno, nos) {
+function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, URL, desc, hostel, mess, ground, pskl, ss, tno, cno, nos) {
     firebase.database().ref('schools/' + userId).set({
       emailId: email,
       schoolName: name,
@@ -23,7 +118,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
       addressL1 : addr1,
       addressL2 : addr2,
       state : state,
-      //district : dist,
+      district : dist,
       country : country,
       zip : zip,
       sPhotoURL : URL,
@@ -43,6 +138,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
         console.log("successfully signed out");
+        window.location="http://192.168.23.1:8887//admin.html";
       }).catch(function(error) {
         // An error happened.
         console.log("error signing out "+error.errorMessage);
@@ -58,7 +154,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
             return node[1].value;
           }   
   }
-
+  // upload school photo
         var button=document.getElementById("sphoto");
         var prog=document.getElementById("uploader");
         button.addEventListener('change', function(e){
@@ -79,9 +175,11 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
             }, function complete(){});
   
         });
+  //  upload school photo end    
     
    function update(){
     var user=firebase.auth().currentUser;   
+    console.log(user+"2");
     if (user) {
         // User is signed in.
         var userId=user.uid;
@@ -94,7 +192,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
         var addr1=document.getElementById("address").value;
         var addr2=document.getElementById("address2").value;
         var state=document.getElementById("state").value;
-        //var dist=document.getElementById("dist").value;
+        var dist=document.getElementById("dist").value;
         var country=document.getElementById("country").value;
         var zip=document.getElementById("zip").value;
         // file url needed
@@ -108,14 +206,17 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
         var tno=document.getElementById("tteachers").value;
         var cno=document.getElementById("cr").value;
         var nos=document.getElementById("ns").value;
-        writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, country, zip, URL, desc, hostel, mess, ground, pskl, ss, tno, cno, nos);
-        
+        writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, URL, desc, hostel, mess, ground, pskl, ss, tno, cno, nos);
+        window.alert("Successfully updated your details");
       } else {
         // No user is signed in.
-        console.log("no user signed in yar");
+        window.alert("no user signed in. Please sign in");
+        console.log("no user signed in yet");
       }
   
 
    }
+
+   
 
     

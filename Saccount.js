@@ -19,7 +19,15 @@ var config = {
     var errorMessage = error.message;
     // ...
         console.log("error creating account"+errorCode);
+        window.alert("error creating account :"+errorMessage);
   });
+  var user=firebase.auth().currentUser; 
+  if(user){
+  //user signed in
+  writeTodb();
+  } else{
+  // no user signed in
+  }
 }
 // function to send school data to database
 function writeUserData(userId, email, name, sid, contactNo, Lat, Long) {
@@ -35,17 +43,11 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long) {
     });
   }
 // function that observes for change in authentication state 
-firebase.auth().onAuthStateChanged(function(user) {
+function writeTodb() {
     // send user the verification email
+    var user=firebase.auth().currentUser;
     if (user) {
       // User is signed in.
-      user.sendEmailVerification().then(function() {
-        // Email sent.
-        window.alert("An email has been sent to your account. Please verify your Account and login using link provided.");
-      }).catch(function(error) {
-        // An error happened.
-        console.log("there is some error " + error.errorMessage);
-      });
       var userId=user.uid;
       var name=document.getElementById("Sname").value;
       var email=user.email;
@@ -54,6 +56,13 @@ firebase.auth().onAuthStateChanged(function(user) {
       var Lat=document.getElementById("Slat").value;
       var Long=document.getElementById("Slong").value;
       writeUserData(userId, email, name, sid, contactNo, Lat, Long);
+      user.sendEmailVerification().then(function() {
+        // Email sent.
+        window.alert("An email has been sent to your account. Please verify your Account and login using link provided.");
+      }).catch(function(error) {
+        // An error happened.
+        console.log("there is some error " + error.errorMessage);
+      });
       //signout of this account
       firebase.auth().signOut().then(function() {
         // Sign-out successful.
@@ -64,4 +73,4 @@ firebase.auth().onAuthStateChanged(function(user) {
       // No user is signed in.
       console.log("no user signed in yar");
     }
-  });
+  }

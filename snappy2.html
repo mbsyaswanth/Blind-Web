@@ -1,39 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.26/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/css/esri.css">
+    <link rel="stylesheet" type="text/css" href="Map/map.css">
+    <script>var dojoConfig = { parseOnLoad: true };</script>
+    <script src="https://js.arcgis.com/3.26/"></script>
+    <script src="Map/map.js"></script>
+    <style>
+            .containe {
+                scroll-snap-type: y mandatory;  
+                overflow-y: scroll;   
+                }
+            .child1 {
+                scroll-snap-align:start;
+                height: 100vh;
+                background-color: aqua;
+                margin-bottom: 3px;
+            }
+            .child2 {
+                scroll-snap-align:start;
+                height: 100vh;
+                background-color: rgb(24, 179, 75);
+                margin-bottom: 3px;
+            }
+            .child3 {
+                scroll-snap-align:start;
+                height: 100vh;
+                background-color:orangered;
+                margin-bottom: 3px;
+            }    
+          </style>
 </head>
 <body>
-    <style>
-      .container {
-          scroll-snap-type: y mandatory;     
-          }
-      .child1 {
-          scroll-snap-align:start;
-          height: 100vh;
-          background-color: aqua;
-          margin-bottom: 3px;
-      }
-      .child2 {
-          scroll-snap-align:start;
-          height: 100vh;
-          background-color: rgb(24, 179, 75);
-          margin-bottom: 3px;
-      }
-      .child3 {
-          scroll-snap-align:start;
-          height: 100vh;
-          background-color:orangered;
-          margin-bottom: 3px;
-      }    
-    </style>
-    <div class="container">
+    
+   
+   <div class="containe">
+       <div>
+           <div class="claro child3">
+            <div class="containe" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false">
+                <div id="layerListPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'">
+                    <div id="layerList"></div>
+                </div>
+                <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+            </div>
+        </div>
+    </div>
         <div class="child1"></div>
         <div class="child2"></div>
         <div class="child3"></div>
     </div>
+    
 </body>
 </html>
