@@ -105,7 +105,7 @@ var config = {
    
 
   // function to send school data to database
-function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, URL, desc, hostel, mess, ground, pskl, ss, tno, cno, nos) {
+function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos) {
     firebase.database().ref('schools/' + userId).set({
       emailId: email,
       schoolName: name,
@@ -121,7 +121,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
       district : dist,
       country : country,
       zip : zip,
-      sPhotoURL : URL,
+      sPhotoURL : image,
       sDesc : desc,
       hostel : hostel,
       mess : mess,
@@ -183,6 +183,15 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
     if (user) {
         // User is signed in.
         var userId=user.uid;
+        
+        // file url needed
+        var storage = firebase.storage().ref('school/');
+         var nam=document.getElementById("sphoto").files[0].name;
+         console.log(nam);
+        // var url=storage.child(userId+'/'+nam).getDownloadURL();
+       
+        storage.child(userId+'/'+nam).getDownloadURL().then(function(url) {
+        var userId=firebase.auth().currentUser.uid;
         var name=document.getElementById("sName").value;
         var email=user.email;
         var sid=document.getElementById("sId").value;
@@ -195,8 +204,24 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
         var dist=document.getElementById("dist").value;
         var country=document.getElementById("country").value;
         var zip=document.getElementById("zip").value;
-        // file url needed
-        var URL=document.getElementById("sphoto").value;
+          // `url` is the download URL for 'images/stars.jpg'
+        
+          // This can be downloaded directly:
+          var xhr = new XMLHttpRequest();
+          xhr.responseType = 'blob';
+          xhr.onload = function(event) {
+            var blob = xhr.response;
+          };
+          xhr.open('GET', url);
+          xhr.send();
+        
+          // Or inserted into an <img> element:
+          var img = document.getElementById('im');
+          img.src = url;
+          console.log(img.src);
+          var image=document.getElementById('im').src;
+        console.log(image);
+        
         var desc=document.getElementById("sdesc").value;
         var hostel=radiocheck("hostel");
         var mess=radiocheck("mess");
@@ -206,8 +231,16 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
         var tno=document.getElementById("tteachers").value;
         var cno=document.getElementById("cr").value;
         var nos=document.getElementById("ns").value;
-        writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, URL, desc, hostel, mess, ground, pskl, ss, tno, cno, nos);
+        writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos);
         window.alert("Successfully updated your details");
+        }).catch(function(error) {
+          // Handle any errors
+        });
+
+        // console.log(url);
+        // var image=url.i;
+        
+        
       } else {
         // No user is signed in.
         window.alert("no user signed in. Please sign in");

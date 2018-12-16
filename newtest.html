@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+        <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" href="#" role="button"></a></p>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Student Registration</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="name">Name of Student</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number of Student</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter Phone number">
+                  </div>
+                  <div class="form-group">
+                    <label for="dob">Date of Birth of Student</label>
+                    <input type="date" class="form-control" id="dob" placeholder="select dob">
+                  </div>
+                  <div class="form-group">
+                    <label for="pcs">Preferred class of study</label>
+                    <input type="text" class="form-control" id="pfs" placeholder="*">
+                  </div>
+                  <div class="form-group">
+                    <label for="gname">Name of Guardian</label>
+                    <input type="text" class="form-control" id="gname" placeholder="Guardian Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="gemail">Email address of Gaurdian</label>
+                    <input type="email" class="form-control" id="gemail" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="gemailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="gphone">Phone Number of Guardian</label>
+                    <input type="text" class="form-control" id="gphone" placeholder="Enter guardian Phone number">
+                  </div>
+                  <div class="form-group">
+                    <label for="medicalReport">Medical Report of Student</label>
+                    <input type="file" class="form-control-file" id="medicalReport" placeholder="upload medical report stating that you are blind">
+                  </div>
+                  <div class="form-group">
+                    <label for="location">Location</label>
+                    <div class="form-row">
+                        <input type="text" class="" name="longitude" id="lat">
+                        <input type="text" class="" name="longitude" id="long">
+                          <i class="material-icons md-24" onclick="getLocation()">
+                              my_location
+                          </i>
+                          <small id="locationHelp" class="form-text text-muted">Click on location icon to capture your location.</small>
+                    </div>  
+                  </div>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <form action="/newtest.html" method="post">
+            <input id="stateSelect" name="g" data-dojo-type="dijit/form/ComboBox" value="Select Blind School"  data-dojo-props="maxHeight: 200" />
+            <a name="stateabbr" id="stateabbr" href="http://192.168.23.1:8887/newtest.html">Continue</a>
+            <input type="submit" value="submit">
+          </form>
+
+
+          <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

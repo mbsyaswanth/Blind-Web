@@ -12,9 +12,15 @@
     <script src="https://js.arcgis.com/3.26/"></script>
     <script src="Map/map.js"></script>
     <style>
+         body{
+             margin: 0%;
+         }
             .containe {
-                scroll-snap-type: y mandatory;  
+                /* scroll-snap-type: x mandatory;   */
                 overflow-y: scroll;   
+                -ms-scroll-snap-type: y mandatory;
+                scroll-snap-type: y mandatory;
+                max-height: 100vh;
                 }
             .child1 {
                 scroll-snap-align:start;
@@ -40,16 +46,7 @@
     
    
    <div class="containe">
-       <div>
-           <div class="claro child3">
-            <div class="containe" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false">
-                <div id="layerListPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right'">
-                    <div id="layerList"></div>
-                </div>
-                <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
-            </div>
-        </div>
-    </div>
+       
         <div class="child1"></div>
         <div class="child2"></div>
         <div class="child3"></div>

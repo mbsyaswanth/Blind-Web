@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        var name=document.getElementById('name').value;
+        var semail=document.getElementById('InputEmail').value;
+        var sphone=document.getElementById('phone').value;
+        var dob=document.getElementById('dob').value;
+        var pcs=document.getElementById('pcs').value;
+        var gname=document.getElementById('gname').value;
+        var gemail=document.getElementById('gemail').value;
+        var gphone=document.getElementById('').value;
+        var mail='mbs.yaswanth@gmail.com';
+        var msg='A new student wants to join your school. The following are his details';
+        msg+="<br/><hr><table><tr><td>Name of Student</td><td>: "+name+"</td></tr><tr><td>Email Address</td>";
+        msg+="<td>: "+semail+"</td></tr><tr><td>Phone No. of Student</td><td>: "+sphone+"</td></tr>";
+        msg+="<tr><td>D.O.B of Student</td><td>: "+dob+"</td></tr><tr><td>Preferred Class Of Study</td><td>: "+pcs+"</td></tr>";
+        msg+="<tr><td>Name of Gaurdian</td><td>: "+gname+"</td></tr><tr><td>Email Address of Gaurdian</td><td>: "+gemail+"</td></tr>";
+        msg+="<tr><td>Phone No. of Gaurdian</td><td>: "+gphone+"</td></tr></table>";
+    Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "mbs.yaswanth@gmail.com",
+    Password : "0fca9467-93db-4c53-b4bc-1007fe6a53e9",
+    To : mail,
+    From : "mbs.yaswanth@gmail.com",
+    Subject : "This is the subject testing",
+    Body : msg
+}).then(
+  message => alert(message)
+);
+    </script>
+<table>
+    <tr><td>Name of Student</td><td>:name</td></tr>
+    <tr><td>Email Address</td><td>:email@gmail.com</td></tr>
+    <tr><td>Phone No. of Student</td><td>:number</td></tr>
+    <tr><td>D.O.B of Student</td><td>:dd/mm/yy</td></tr>
+    <tr><td>Preferred Class Of Study</td><td>:hk</td></tr>
+    <tr><td>Name of Gaurdian</td><td>:name</td></tr>
+    <tr><td>Email Address of Gaurdian</td><td>:email@gmail.com</td></tr>
+    <tr><td>Phone No. of Gaurdian</td><td>:number</td></tr>
+</table>
+    
+</body>
+</html>

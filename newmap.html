@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+  <title>Drop Down Test</title>
+  <link rel="stylesheet" href="http://js.arcgis.com/4.9/dijit/themes/claro/claro.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+  <!-- material icons  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+     <!-- location script -->
+     <script src="location.js"> </script>
+     <!-- email cdn smtpjs -->
+     <script src="https://smtpjs.com/v3/smtp.js"></script>
+     <script src="email.js"></script>
+  <script src="https://js.arcgis.com/4.9/"></script>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+  
+    html,
+    body,
+    #mainWindow {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #FFF;
+      overflow: hidden;
+      font-family: "Trebuchet MS";
+    }
+
+  </style>
+
+  <script>
+    var map;
+    var school={};
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "dojo/on",
+      "esri/tasks/support/Query",
+      "esri/layers/FeatureLayer",
+      "esri/widgets/Search",
+       "esri/widgets/Locate",
+      "dojo/store/Memory",
+      "dojo/_base/array",
+      "dojo/_base/lang",
+      "esri/request",
+      "dojo/parser",
+      "dijit/registry",
+      "dijit/layout/BorderContainer",
+      "dijit/layout/ContentPane",
+      "dijit/form/Button",
+      "dijit/form/ComboBox",
+      "dojo/domReady!"
+    ], function(
+      Map, MapView, on, Query, FeatureLayer, Search, Locate, Memory, array, lang, esriRequest, parser, registry
+    ) {
+      parser.parse();
+      const labelClass = { // autocasts as new LabelClass()
+        symbol: {
+          type: "text", // autocasts as new TextSymbol()
+          color: "white",
+          haloColor: "black",
+          font: { // autocast as new Font()
+            family: "playfair-display",
+            size: 12,
+            weight: "bold"
+          }
+        },
+       
+      };
+      var template = { // autocasts as new PopupTemplate()
+        title: "DETAILS OF THE SCHOOL",
+        content: [{
+          // It is also possible to set the fieldInfos outside of the content
+          // directly in the popupTemplate. If no fieldInfos is specifically set
+          // in the content, it defaults to whatever may be set within the popupTemplate.
+          type: "fields",
+          fieldInfos: [{
+            fieldName: "NAME_OF_THE_SCHOOL",
+            label: "School Name",
+            visible: true
+          }, {
+            fieldName: "EMAIL_ADDRESS_OF_THE_SCHOOL",
+            label: "Email",
+            visible: true,
+            
+          }]
+        }]
+      };
+
+      // Create the MapView
+      var view = new MapView({
+        container: "map",
+        map: new Map({
+          basemap:"streets",
+          layers: [
+            new FeatureLayer({
+              portalItem: { // autocasts as new PortalItem
+                id: "b9d1f2d0a8be4d2e87c53c0c77aa6dd3"
+              },
+              outFields: ["*"],
+        popupTemplate: template,
+              labelingInfo: [labelClass],
+              renderer: {
+                type: "simple", // autocasts as new SimpleRenderer()
+                symbol: {
+                  type: "simple-marker", 
+                  style:"square",// autocasts as new SimpleMarkerSymbol()
+                  color: "rgba(36,36,36,1)",
+                  size: 10,
+                  outline: {
+                    color: [255,255,255, 0.65],
+                    width: 3
+                  }
+                }
+              }
+            })
+          ]
+        }),        center: [77,22],
+        zoom: 5
+      });
+       var locateBtn = new Locate({
+        view: view,
+        scale:12345678
+      });
+
+      // Add the locate widget to the top left corner of the view
+      view.ui.add(locateBtn, {
+        position: "top-left"
+      });
+      view.ui.add(new Search({
+        view: view,
+        allPlaceholder: "Enter School Name",
+        sources: [{
+          featureLayer: {
+            url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0?token=XOpDCWQjd4GHcexTq23FjrCNDHt8CVYZI4-g2KhpaPEuwP8hpnWtUiH2FK1zh7wsfKJ8-Y3G4cHl1v_M-AWfFBZsH7PS9n3wp-F8ZhDddn5lJ5ukhKRnyHp5mvkJ6fyx61GD28PFbw6cAH5FA7mubsYcsjj-L5poA9KyBWSmZfknKJ41pYXSOa0-d7IeIfUyZuBkdkx0poaUttA1Bkdj8Hzm3jdvxLRe_Ke-UoPuHv_wsAJgoq3rJatPvwnSNYAU",
+            popupTemplate: { // autocasts as new PopupTemplate()
+              title: "School Details </br>{NAME_OF_THE_SCHOOL}, {EMAIL_ADDRESS_OF_THE_SCHOOL}",
+              overwriteActions: true
+            }
+          },
+          searchFields: ["NAME_OF_THE_SCHOOL"],
+          displayField: "NAME_OF_THE_SCHOOL",
+          exactMatch: false,
+          outFields: [ "NAME_OF_THE_SCHOOL", "EMAIL_ADDRESS_OF_THE_SCHOOL"],
+          name: "Blind Schools",
+          placeholder: "example: Visakha Model School for Blind",
+      }]
+    }), "top-right");
+
+      esriRequest('https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0/query?where=OBJECTID+%3E+0&objectIds=&time=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=NAME_OF_THE_SCHOOL%2CEMAIL_ADDRESS_OF_THE_SCHOOL&returnHiddenFields=false&returnGeometry=false&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=XOpDCWQjd4GHcexTq23FjrCNDHt8CVYZI4-g2KhpaPEuwP8hpnWtUiH2FK1zh7wsfKJ8-Y3G4cHl1v_M-AWfFBZsH7PS9n3wp-F8ZhDddn5lJ5ukhKRnyHp5mvkJ6fyx61GD28PFbw6cAH5FA7mubsYcsjj-L5poA9KyBWSmZfknKJ41pYXSOa0-d7IeIfUyZuBkdkx0poaUttA1Bkdj8Hzm3jdvxLRe_Ke-UoPuHv_wsAJgoq3rJatPvwnSNYAU',
+      {
+        responseType:'json',
+        timeout:15000
+      }).then(lang.hitch(this,function(response){
+        var store2 = new Memory({data:[]});
+        registry.byId("stateSelect").set('store',store2);
+        var data = array.map(response.data.features,lang.hitch(this,function(feat, index){
+          var name = feat.attributes.NAME_OF_THE_SCHOOL;
+          var value = feat.attributes.EMAIL_ADDRESS_OF_THE_SCHOOL;
+         // alert(value);
+          var dataItem = {
+            id:index,
+            name:name,
+            value:value
+          };
+          school[name]=value;
+          return dataItem;
+        }));
+        store2 = new Memory({data:data});
+        registry.byId("stateSelect").set('store',store2);
+      }));
+      //console.log(school);
+    });
+    console.log(school);
+  </script>
+</head>
+
+<body class="claro">
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Student Registration</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="name">Name of Student</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number of Student</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter Phone number">
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth of Student</label>
+                <input type="date" class="form-control" id="dob" placeholder="select dob">
+              </div>
+              <div class="form-group">
+                <label for="pcs">Preferred class of study</label>
+                <input type="text" class="form-control" id="pcs" placeholder="*">
+              </div>
+              <div class="form-group">
+                <label for="gname">Name of Guardian</label>
+                <input type="text" class="form-control" id="gname" placeholder="Guardian Name">
+              </div>
+              <div class="form-group">
+                <label for="gemail">Email address of Gaurdian</label>
+                <input type="email" class="form-control" id="gemail" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="gemailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="gphone">Phone Number of Guardian</label>
+                <input type="text" class="form-control" id="gphone" placeholder="Enter guardian Phone number">
+              </div>
+              <div class="form-group">
+                <label for="medicalReport">Medical Report of Student</label>
+                <input type="file" class="form-control-file" id="medicalReport" placeholder="upload medical report stating that you are blind">
+              </div>
+              <div class="form-group">
+                <label for="location">Location</label>
+                <div class="form-row">
+                    <input type="text" class="" name="longitude" id="lat">
+                    <input type="text" class="" name="longitude" id="long">
+                      <i class="material-icons md-24" onclick="getLocation()">
+                          my_location
+                      </i>
+                      <small id="locationHelp" class="form-text text-muted">Click on location icon to capture your location.</small>
+                </div>  
+              </div>
+              <button type="submit" class="btn btn-primary" onclick="mail()">Submit</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters:false" style="padding:0px;margin:0px;">
+    <div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="overflow:hidden;border:none;border-bottom: 3px solid rgb(10, 10, 10);font-family: Windows;font-size:14pt; color: #FFFFFF;background: #302d2d; "> Select a School:
+      <input id="stateSelect" name="school" data-dojo-type="dijit/form/ComboBox" value="Select Blind School"  data-dojo-props="maxHeight: 200" />
+        <button type="button" id="stateabbr" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Continue
+        </button>
+    </div>
+    
+    <div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'" style="width:100%;height:95%;border:none;padding:0px;margin:0px;"></div>
+  </div>
+
+
+  <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" href="#" role="button"></a></p>
+ 
+
+   
+</body>
+
+</html>
