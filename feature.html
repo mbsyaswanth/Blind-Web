@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>MyMap</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.7/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.7/"></script>
+    <style>
+        html,   
+    body,   
+    #map {  
+      width:100%;  
+      height:100%;  
+      margin:0;  
+      padding:0;  
+    }  
+
+  </style>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/Graphic",
+            "esri/widgets/Search",
+            "esri/geometry/Point",
+            "dojo/dom",
+            "esri/geometry/SpatialReference",
+            "dojo/on",
+            "dojo/domReady!"
+        ], function (
+            Map,
+            MapView,
+            FeatureLayer,
+            Graphic,
+            Search,
+            Point,
+            dom,
+            SpatialReference,
+            on
+        ) {
+                var featureLayer = new FeatureLayer({
+                    url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0?token=0CndUfsN8SOjYxhnrNAI_NpC-MevleciJkiNAaP8TwUnSwl2qtLIYATWlaO6rNshcWYr42K7cJvrXvB6nkHNcf2uI4QASUF9pJAYbLcY9VMBIG9KV548GPKvqZhvo2uTFzH0wYoBSQBkKLP4xrJ0ZcElERI6D6m4FRDngfyZq40gkRY4MtlPTaeUQNLOi5X93zQNNcTg3Wo9iyw89pHAnbt1UiOGiaJBRdyEzEnlQmMR56vSuUppdO6FRNbmQqNu",
+                    outFields: ["*"],
+                });
+
+                on(document.getElementById('edit-save'), 'click', function () {
+                    //create the feature
+                    var feature = new Graphic();
+                    var geometry = new Point({
+                        type: "point",
+                        x: document.getElementById('Longitude').value,
+                        y: document.getElementById('Latitude').value,
+                        //    spatialReference: new SpatialReference({wkid: 32644})
+                    });
+
+                    feature.geometry = geometry;
+
+                    feature.attributes = {
+                        "NAME_OF_THE_SCHOOL": document.getElementById('Name').value,
+                        "EMAIL_ADDRESS_OF_THE_SCHOOL": document.getElementById('Email').value,
+                        "LATITUDE": document.getElementById('Latitude').value,
+                        "LONGITUDE": document.getElementById('Longitude').value,
+                        "NAME_OF_THE_STATE": document.getElementById('state').value,
+                        "TOTAL_NUMBER_OF_STUDENTS": document.getElementById('ns').value,
+                        "NUMBER_OF_10_GRADE_STUDENTS": document.getElementById('nts').value,
+                        "NUMBER_OF_STUDENTS_JOINED_THROUGH_EDUCATING_BLIND": document.getElementById('nseb').value
+
+                    };
+
+                    //add to the featureLayer
+                    var promise = featureLayer.applyEdits({
+                        addFeatures: [feature]
+                    });
+
+                    promise.then(function (res) {
+                        console.log('new OBJECTID:', res.addFeatureResults[0].objectId);
+                    }, function (err) {
+                        console.error(err);
+                    });
+                });
+            });
+    </script>
+</head>
+
+
+<body class="">
+    <div id="" class="">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <h1 class="">Edit Information</h1>
+                </div>
+                <div class="">
+                    <form class="" name="blind">
+                        <div class="">
+                            <label class="">Name of the School</label>
+                            <div class="">
+                                <input type="text" class="" id="Name">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">Email address of the School</label>
+                            <div class="">
+                                <input type="text" class="" id="Email">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">Latitude</label>
+                            <div class="">
+                                <input type="text" class="" id="Latitude">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">Longitude</label>
+                            <div class="">
+                                <input type="text" class="" id="Longitude">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">State</label>
+                            <div class="">
+                                <select class="" id="state" required="">
+                                    <option value="">Choose...</option>
+                                    <option>Andhra Pradesh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">Number of Students</label>
+                            <div class="">
+                                <input type="number" id="ns" placeholder="" required="">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">Number of 10th grade Students</label>
+                            <div class="">
+                                <input type="number" id="nts" placeholder="" required="">
+                            </div>
+                        </div>
+                        <div class="">
+                            <label class="">Number of Students by Educating Blind Website</label>
+                            <div class="">
+                                <input type="number" id="nseb" placeholder="" required="">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="">
+                    <button type="button" class="" id="edit-save">Save Changes</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

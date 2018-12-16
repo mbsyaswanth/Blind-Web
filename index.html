@@ -28,6 +28,7 @@
 }
 
      .contain {
+       padding-top:56px;
       overflow-y: scroll; 
   scroll-snap-type: y mandatory;
   max-height: 100vh;
@@ -51,14 +52,14 @@
 
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Carousel</a>
+        <a class="navbar-brand" href="#">Educating Blind</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"> Student Statistics</a>
@@ -70,7 +71,7 @@
                 <a class="nav-link" href="#map1">Analysis</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="#aboutus">About Us</a>
             </li>
           </ul>
         </div>
@@ -78,7 +79,7 @@
     </header>
 
     <main  role="main" id="full">
-      <div id="myCarousel" class="carousel slide chil" data-ride="carousel">
+      <div id="up" class="carousel slide chil"  data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
           <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -89,9 +90,14 @@
             <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left">
-                <h1>Example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" href="#" role="button">Register blind with us</a></p>
+                <h1>Register blind with us</h1>
+                <p>
+                  Only 40000 children are into schools out of 6 lakhs blind children in India. This is not due to
+                    lack of interest but due to lack of awareness. <br>
+                    Educating blind serves as an important tool between blind children and blind schools <br>
+                    Kindly help us in spreading the awareness by filling the application form below when u come
+                    across a child like one mentioned. Please help in fulfilling their dreams.</p>
+                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" href="#" role="button">Register a Blind</a></p>
               </div>
             </div>
           </div>
@@ -174,9 +180,12 @@
             <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#schoolRegister" href="#" role="button">Register your institute</a></p>
+                <h1>Team up with us</h1>
+                <p>Despite the number of blind schools being less in number, the ratio of blind students getting admitted into schools
+                    is not upto the mark. <br>
+                    Educating blind is an initiative to increase this ratio by introducing the schools to the world. <br>
+                    Not yet registered? </p>
+                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#schoolRegister" href="#" role="button">Register My School</a></p>
               </div>
             </div>
           </div>
@@ -214,7 +223,7 @@
           </div>
           <div class="form-group">
             <label for="Slocation">Location</label>
-            <div class="row">
+            <div class="form-row">
                   <input type="text" name="longitude" id="Slat" class="">
                   <input type="text" name="longitude" id="Slong" class="">
                   <i class="material-icons md-24" onclick="SgetLocation()">
@@ -239,9 +248,11 @@
           <div class="carousel-item">
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
             <div class="container">
-              <div class="carousel-caption text-right">
-                <h1>One more for good measure.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <div class="carousel-caption text-left">
+                <h1>Our Inspiration</h1>
+                <p> <b>Srikanth Bolla</b>, CEO of Bollant Industries. <br>
+                    He proved that differently abled people are no different from abled people. <br>
+                    Educating Blind wishes to see a number of blind children achieving their goals like him.</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
               </div>
             </div>
@@ -260,13 +271,40 @@
 
      
     </div>
-     <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
       <div class="marketing staticmap chil" id="map1">
         <iframe src="js4.9mapstatic.html" frameborder="0" height="100%" width="100%"></iframe>
       </div>
-      
+      <div id="aboutus" class="container chil">
+          Unlike normal schools, blind schools do not advertise to grab the attention of prospective
+students. The process of admission includes a lot of manual work by the staff of a blind school.
+This includes the survey of blind children, visiting them, introducing the facilities the school
+provides and finally convincing them to join the school. In this process, they miss a huge
+number of blind children as its a manual survey.
+Being a literate should be the goal of blind children and it shouldn&#39;t be convinced.
+Inspite of such great survey, some of these refuse to join due to either personal issue or
+improper location of the school. In addition to these problems, the teachers might miss those
+who are interested to join the school.
+The objective of Educating blind is to bring all blind schools together in our website so that
+blind children can choose the school they want to study depending upon the facilities school
+provides, type of education they offer and the location of school with respect to blind children.
+After successful completion of the application process, the admission council of the respective
+school will get back to the student as well as the guardian who helped him through Email and
+
+Phone about the child’s consideration. They are provided with information about the remaining
+steps to be fulfilled before the admission. In this way, the manual survey comes to extinction in
+future and the staff is given rest from it.
+Besides this educating blind is a dynamic website that changes accordingly with the registration
+of new schools.
+An analysis will be carried out by educating blind upon the blind demographics in India which
+provides a decision-making report for the education board of India to establish more no of
+schools in densely populated areas as well as areas with no blind schools.
+Year-wise reports of students being relieved and the number of institutions providing further
+education will be generated on the website. To be precise there are around 5-10 schools
+providing intermediate level of education and 1-5 institutes providing degree education. We wish
+the Indian government to come across these statistics and establish institutes that provide
+higher secondary education and degree level education so that the future Srikanth Bolla&#39;s will
+be graduated from India rather than foreign universities.
+      </div>
     </main>
     <!-- FOOTER -->
     <footer class="container chil">
