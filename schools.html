@@ -7,9 +7,6 @@
     <title>Schools</title>
        <!-- Bootstrap core CSS -->
        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-       <!-- Custom styles for this template -->
-       <link href="bootstrap/css/carousel.css" rel="stylesheet">
        <!-- material icons  -->
        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      </head>
@@ -61,16 +58,21 @@ database.on("child_added", function(data, prevChildKey) {
 </script>
 <style>
  .holder{
+   min-width: 100%;
+   min-height: 414px;
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    overflow-x: auto;
  }
  .cardi{
      margin: 10px;
-     width: 300px !important;
+     min-width: 300px !important;
+     min-height: 414px;
      box-shadow: 1px 1px 4px 0px;
      border-radius: 4px;
  }
+ .holder::-webkit-scrollbar {
+  display: none;
+}
  .p{
     font-weight: 500;
     color: black;
@@ -79,102 +81,121 @@ database.on("child_added", function(data, prevChildKey) {
     max-height: 72px;
     overflow: hidden;
  }
+ html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+ .schoolcenter{
+  margin-top: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
 </style>
 <body>
-    
-<div class="holder" id="hold">
-<!-- 1 -->
-<div class="cardi" >
-  <img class="card-img-top" src="sample.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title" style="margin-bottom:0px;">School Name</h5>
-    <small><i class="material-icons" style="font-size:15px;">
-            location_on
-            </i>Location
-    </small>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">More Details</a>
- </div>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  
-                  <div class="modal-title">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">School Name</h5>
-                      <small>
-                      <i class="material-icons" style="font-size:15px;">
-                        location_on
-                      </i>Location
-                      </small>
-                  </div>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div> 
-                <div class="modal-body">
-                        <div class="card">
-                                <img class="img-fluid" src="sample.jpg" alt="Card image cap">
-                                <div class="card-body">
-                                   <div class="container">
-                                       <h6>Facilities</h6>
-                                       <hr>
-                                       <div class="row">
-                                           <div class="col-sm-4 p">Hostel</div>
-                                           <div class="col-sm-2">Yes</div>
-                                           <div class="col-sm-4 p">Food</div>
-                                           <div class="col-sm-2">Yes</div>
-                                       </div>
-                                       <div class="row">
-                                            <div class="col-sm-4 p">Playground</div>
-                                            <div class="col-sm-2">Yes</div>
-                                            <div class="col-sm-4 p">Primary School</div>
-                                            <div class="col-sm-2">Yes</div>
-                                        </div>
-                                        <div class="row">
-                                                <div class="col-sm-6 p">Secondary School</div>
-                                                <div class="col-sm-6">Yes</div>
-                                        </div>
-                                        <div class="row">
-                                                <div class="col-sm-6 p">No. of Class Rooms.</div>
-                                                <div class="col-sm-6">10</div>
-                                        </div>
-                                        <div class="row">
-                                                <div class="col-sm-6 p">No. of Teachers </div>
-                                                <div class="col-sm-6">15</div>
-                                        </div>
-                                        <hr>
-                                        <h6>About School</h6>
-                                        <hr>
-                                        <div>
-                                           <p id="sdesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi veritatis blanditiis, magnam eius, vero ab hic nihil eligendi fuga ratione id quos ipsum repudiandae molestiae asperiores, vel voluptatum facere ullam!
-                                           </p>
-                                        </div>
-                                        <hr>
-                                        <h6>Contact Details</h6>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-4 p">Email</div>
-                                            <div class="col-sm-8">kjdfkdsfaskj@gmail.com</div>
-                                        </div>
-                                        <div class="row">
-                                                <div class="col-sm-4 p">Contact No.</div>
-                                                <div class="col-sm-8">6585214697</div>
-                                        </div>
-                                   </div>
-                                </div>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-     </div>
-</div>
 
-</div>
+ 
+    <h2 style="padding:20px;padding-bottom:0px;">Blind Schools</h2><hr>
+    <div class="schoolcenter">
+        <div class="holder" id="hold">
+        
+            <!-- 1 -->
+            <div class="cardi" >
+              <img class="card-img-top" src="sample.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title" style="margin-bottom:0px;">School Name</h5>
+                <small><i class="material-icons" style="font-size:15px;">
+                        location_on
+                        </i>Location
+                </small>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">More Details</a>
+             </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              
+                              <div class="modal-title">
+                                  <h5 class="modal-title" id="exampleModalCenterTitle">School Name</h5>
+                                  <small>
+                                  <i class="material-icons" style="font-size:15px;">
+                                    location_on
+                                  </i>Location
+                                  </small>
+                              </div>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div> 
+                            <div class="modal-body">
+                                    <div class="card">
+                                            <img class="img-fluid" src="sample.jpg" alt="Card image cap">
+                                            <div class="card-body">
+                                               <div class="container">
+                                                   <h6>Facilities</h6>
+                                                   <hr>
+                                                   <div class="row">
+                                                       <div class="col-sm-4 p">Hostel</div>
+                                                       <div class="col-sm-2">Yes</div>
+                                                       <div class="col-sm-4 p">Food</div>
+                                                       <div class="col-sm-2">Yes</div>
+                                                   </div>
+                                                   <div class="row">
+                                                        <div class="col-sm-4 p">Playground</div>
+                                                        <div class="col-sm-2">Yes</div>
+                                                        <div class="col-sm-4 p">Primary School</div>
+                                                        <div class="col-sm-2">Yes</div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-sm-6 p">Secondary School</div>
+                                                            <div class="col-sm-6">Yes</div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-sm-6 p">No. of Class Rooms.</div>
+                                                            <div class="col-sm-6">10</div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-sm-6 p">No. of Teachers </div>
+                                                            <div class="col-sm-6">15</div>
+                                                    </div>
+                                                    <hr>
+                                                    <h6>About School</h6>
+                                                    <hr>
+                                                    <div>
+                                                       <p id="sdesc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi veritatis blanditiis, magnam eius, vero ab hic nihil eligendi fuga ratione id quos ipsum repudiandae molestiae asperiores, vel voluptatum facere ullam!
+                                                       </p>
+                                                    </div>
+                                                    <hr>
+                                                    <h6>Contact Details</h6>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="col-sm-4 p">Email</div>
+                                                        <div class="col-sm-8">kjdfkdsfaskj@gmail.com</div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-sm-4 p">Contact No.</div>
+                                                            <div class="col-sm-8">6585214697</div>
+                                                    </div>
+                                               </div>
+                                            </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                 </div>
+            </div>
+            
+          </div>
+    </div>
+    
+
 
 
 

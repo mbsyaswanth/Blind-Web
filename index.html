@@ -19,9 +19,6 @@
     <!-- ArcGis links -->
     <!-- ArcGis Links end -->
    <style>
-   /* .staticmap{
-     @include 'main.css';
-   } */
   
    html {
   scroll-behavior: smooth;
@@ -45,13 +42,54 @@
       height: 100%;
       width: 100%;
     }
+
+    /* nav styles */
+
+  .connav {
+  width: 90%;
+  margin: 0 auto;
+  clear: both;
+}
+
+a {
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+}
+
+nav {
+  background: #fff;
+  height: 80px;
+  line-height: 80px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.5s;
+}
+nav.scrollUp {
+  transform: translateY(-80px);
+}
+
+nav a#brand {
+  text-transform: uppercase;
+  float: left;
+  font-weight: 800;
+  font-size: 20px;
+}
+.navbar {
+  position: fixed !important;
+}
    </style>
 
   </head>
+  
   <body class="contain">
 
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="#">Educating Blind</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -75,7 +113,40 @@
             </li>
           </ul>
         </div>
-      </nav>
+      </nav> -->
+      <!-- hiding header  -->
+      <nav class="navbar navbar-nav navbar-expand-md navbar-light bg-light">
+          <div class="connav">
+            <a class="navbar-brand" href="#" id="brand">Educating Blind</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-menu navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#map1"> Student Statistics</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#school">Schools</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#studentregistration"> Register a Student</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Analysis</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#aboutus">About Us</a>
+                  </li>
+                </ul>
+              </div>
+            
+          </div>
+        </nav>
     </header>
 
     <main  role="main" id="full">
@@ -97,84 +168,10 @@
                     Educating blind serves as an important tool between blind children and blind schools <br>
                     Kindly help us in spreading the awareness by filling the application form below when u come
                     across a child like one mentioned. Please help in fulfilling their dreams.</p>
-                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalCenter" href="#" role="button">Register a Blind</a></p>
+                <p><a class="btn btn-lg btn-primary" href="#studentregistration" role="button">Register a Blind</a></p>
               </div>
             </div>
           </div>
-
-          <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Student Registration</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="name">Name of Student</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number of Student</label>
-            <input type="text" class="form-control" id="phone" placeholder="Enter Phone number">
-          </div>
-          <div class="form-group">
-            <label for="dob">Date of Birth of Student</label>
-            <input type="date" class="form-control" id="dob" placeholder="select dob">
-          </div>
-          <div class="form-group">
-            <label for="pcs">Preferred class of study</label>
-            <input type="text" class="form-control" id="pfs" placeholder="*">
-          </div>
-          <div class="form-group">
-            <label for="gname">Name of Guardian</label>
-            <input type="text" class="form-control" id="gname" placeholder="Guardian Name">
-          </div>
-          <div class="form-group">
-            <label for="gemail">Email address of Gaurdian</label>
-            <input type="email" class="form-control" id="gemail" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="gemailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group">
-            <label for="gphone">Phone Number of Guardian</label>
-            <input type="text" class="form-control" id="gphone" placeholder="Enter guardian Phone number">
-          </div>
-          <div class="form-group">
-            <label for="medicalReport">Medical Report of Student</label>
-            <input type="file" class="form-control-file" id="medicalReport" placeholder="upload medical report stating that you are blind">
-          </div>
-          <div class="form-group">
-            <label for="location">Location</label>
-            <div class="form-row">
-                <input type="text" class="" name="longitude" id="lat">
-                <input type="text" class="" name="longitude" id="long">
-                  <i class="material-icons md-24" onclick="getLocation()">
-                      my_location
-                  </i>
-                  <small id="locationHelp" class="form-text text-muted">Click on location icon to capture your location.</small>
-            </div>  
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
-      </div>
-    </div>
-  </div>
 
           <div class="carousel-item">
             <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
@@ -271,19 +268,26 @@
 
      
     </div>
-      <div class="marketing staticmap chil" id="map1">
+      <div class="container marketing staticmap chil" id="map1">
         <iframe src="js4.9mapstatic.html" frameborder="0" height="100%" width="100%"></iframe>
       </div>
+      <div class="chil schools" id="school">
+          <iframe src="schools.html" frameborder="0" height="100%" width="100%"></iframe>
+      </div>
+      <div id="studentregistration" class="student chil">
+        <iframe src="newmap1.html" frameborder="0" height="100%" width="100%"></iframe>
+      </div>
       <div id="aboutus" class="container chil">
+        <h2>About Us</h2>
           Unlike normal schools, blind schools do not advertise to grab the attention of prospective
 students. The process of admission includes a lot of manual work by the staff of a blind school.
 This includes the survey of blind children, visiting them, introducing the facilities the school
 provides and finally convincing them to join the school. In this process, they miss a huge
-number of blind children as its a manual survey.
+number of blind children as its a manual survey. <br>
 Being a literate should be the goal of blind children and it shouldn&#39;t be convinced.
 Inspite of such great survey, some of these refuse to join due to either personal issue or
-improper location of the school. In addition to these problems, the teachers might miss those
-who are interested to join the school.
+improper location of the school. Also, the teachers might miss some students
+who are interested to join the school. <br>
 The objective of Educating blind is to bring all blind schools together in our website so that
 blind children can choose the school they want to study depending upon the facilities school
 provides, type of education they offer and the location of school with respect to blind children.
@@ -291,8 +295,9 @@ After successful completion of the application process, the admission council of
 school will get back to the student as well as the guardian who helped him through Email and
 
 Phone about the child’s consideration. They are provided with information about the remaining
-steps to be fulfilled before the admission. In this way, the manual survey comes to extinction in
-future and the staff is given rest from it.
+steps to be fulfilled before the admission. In this way, the Educating Blind eliminates the manual 
+survey process and helps Blind School's find Students. <br>
+
 Besides this educating blind is a dynamic website that changes accordingly with the registration
 of new schools.
 An analysis will be carried out by educating blind upon the blind demographics in India which
@@ -307,7 +312,7 @@ be graduated from India rather than foreign universities.
       </div>
     </main>
     <!-- FOOTER -->
-    <footer class="container chil">
+    <footer class="">
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>&copy; 2017-2018 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
     </footer>
@@ -326,6 +331,30 @@ be graduated from India rather than foreign universities.
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="bootstrap/js/holder.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        
+        'use strict';
+        
+         var c, currentScrollTop = 0,
+             navbar = $('nav');
+      
+         $(window).scroll(function () {
+            var a = $(window).scrollTop();
+            var b = navbar.height();
+           
+            currentScrollTop = a;
+           
+            if (c < currentScrollTop && a > b + b) {
+              navbar.addClass("scrollUp");
+            } else if (c > currentScrollTop && !(a <= b)) {
+              navbar.removeClass("scrollUp");
+            }
+            c = currentScrollTop;
+        });
+        
+      });
+        </script>
     
   </body>
 </html>
