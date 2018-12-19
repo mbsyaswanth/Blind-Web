@@ -40,6 +40,8 @@ var config = {
         document.getElementById("tteachers").value=snapshot.val().tno;
         document.getElementById("cr").value=snapshot.val().cno;
         document.getElementById("ns").value=snapshot.val().nos;
+        document.getElementById("tenclassstu").value=snapshot.val().tenth_stu;
+        ebs=document.getElementById("ebs").value=snapshot.val().ebs;
         // file url needed
         //var URL=document.getElementById("sphoto").value;
         document.getElementById("sdesc").value=snapshot.val().sDesc;
@@ -105,7 +107,7 @@ var config = {
    
 
   // function to send school data to database
-function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos) {
+function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos, ten_stu, ebs) {
     firebase.database().ref('schools/' + userId).set({
       emailId: email,
       schoolName: name,
@@ -130,7 +132,9 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
       sskl : ss,
       tno : tno,
       cno : cno,
-      nos: nos
+      nos: nos,
+      tenth_stu : ten_stu,
+      ebs : ebs
     });
   };
 
@@ -231,7 +235,9 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
         var tno=document.getElementById("tteachers").value;
         var cno=document.getElementById("cr").value;
         var nos=document.getElementById("ns").value;
-        writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos);
+        var ten_stu=document.getElementById("tenclassstu").value;
+        var ebs=document.getElementById("ebs").value;
+        writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos, ten_stu, ebs);
         window.alert("Successfully updated your details");
         }).catch(function(error) {
           // Handle any errors
@@ -250,6 +256,5 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
 
    }
 
-   
-
+  
     

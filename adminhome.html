@@ -9,7 +9,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="bootstrap/css/form-validation.css">
-
+    
     <!-- material icons  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -230,15 +230,31 @@
                           </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                                <label for="ns">Number of Students</label>
+                                <label for="ns">Total Number of Students</label>
                                 <input type="number" class="form-control" id="ns" placeholder="" required="">
                                 <div class="invalid-feedback">
                                   This field is required
                          </div>
                         </div>
                       </div>
+                      <div class="row">
+                          <div class="col-md-5 mb-3">
+                            <label for="tenclassstu">Number of 10th Class Students</label>
+                            <input type="number" class="form-control" id="tenclassstu" placeholder="" required="">
+                            <div class="invalid-feedback">
+                              This field is required
+                            </div>
+                          </div>
+                          <div class="col-md-5 mb-3">
+                            <label for="ebs">Number of Students through Educating Blind</label>
+                            <input type="number" class="form-control" id="ebs" placeholder="" required="">
+                            <div class="invalid-feedback">
+                              This field is required
+                            </div>
+                          </div>
+                        </div>
                       <hr class="mb-4">
-                      <button class="btn btn-primary btn-lg btn-block" onclick="update()" type="submit">Update</button>
+                      <button class="btn btn-primary btn-lg btn-block" id="update" onclick="update()" type="submit">Update</button>
                     </div>
                   </div>
      </div>
@@ -280,5 +296,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="bootstrap/js/holder.min.js"></script>
+    <script src="https://js.arcgis.com/4.7/"></script>
+    <script src="geodb.js"></script>
 </body>
 </html>

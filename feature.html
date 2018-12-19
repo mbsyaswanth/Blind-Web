@@ -46,7 +46,7 @@
                     outFields: ["*"],
                 });
 
-                on(document.getElementById('edit-save'), 'click', function () {
+                on(document.getElementById('update'), 'click', function () {
                     //create the feature
                     var feature = new Graphic();
                     var geometry = new Point({
@@ -59,14 +59,14 @@
                     feature.geometry = geometry;
 
                     feature.attributes = {
-                        "NAME_OF_THE_SCHOOL": document.getElementById('Name').value,
-                        "EMAIL_ADDRESS_OF_THE_SCHOOL": document.getElementById('Email').value,
-                        "LATITUDE": document.getElementById('Latitude').value,
-                        "LONGITUDE": document.getElementById('Longitude').value,
+                        "NAME_OF_THE_SCHOOL": document.getElementById('sName').value,
+                        "EMAIL_ADDRESS_OF_THE_SCHOOL": document.getElementById('sEmail').value,
+                        "LATITUDE": document.getElementById('lat').value,
+                        "LONGITUDE": document.getElementById('long').value,
                         "NAME_OF_THE_STATE": document.getElementById('state').value,
                         "TOTAL_NUMBER_OF_STUDENTS": document.getElementById('ns').value,
-                        "NUMBER_OF_10_GRADE_STUDENTS": document.getElementById('nts').value,
-                        "NUMBER_OF_STUDENTS_JOINED_THROUGH_EDUCATING_BLIND": document.getElementById('nseb').value
+                        "NUMBER_OF_10_GRADE_STUDENTS": document.getElementById('tenclassstu').value,
+                        "NUMBER_OF_STUDENTS_JOINED_THROUGH_EDUCATING_BLIND": document.getElementById('ebs').value
 
                     };
 
