@@ -24,7 +24,7 @@ var config = {
       // send user the verification email
       if (user) {
         // User is signed in.
-        window.location="http://192.168.23.1:8887//adminhome.html";
+        window.location="http://192.168.1.3:8887/adminhome.html";
       } else {
         // No user is signed in.
         console.log("no user signed in yet");

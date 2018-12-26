@@ -38,6 +38,7 @@ database.on("child_added", function(data, prevChildKey) {
    console.log(data.val());
    console.log(data.ref.key);     
    var newSchool = data.val();
+   if(newSchool.sPhotoURL){
    var card="<div class='cardi'><img class='card-img-top' src='"+newSchool.sPhotoURL+"' alt='Card image cap'><div class='card-body'><h5 class='card-title' style='margin-bottom:0px;'>";
    card=card+newSchool.schoolName;
    card+="</h5><small><i class='material-icons' style='font-size:15px;'>location_on </i>"+newSchool.district+", "+newSchool.state;
@@ -53,20 +54,21 @@ database.on("child_added", function(data, prevChildKey) {
    card+='<div class="col-sm-4 p">Email</div><div class="col-sm-8">'+newSchool.emailId+'</div></div><div class="row"><div class="col-sm-4 p">';
    card+='Contact No.</div><div class="col-sm-8">'+newSchool.phone+'</div></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">';
    card+='Close</button></div></div></div></div></div>';
-   document.getElementById('hold').innerHTML+=card;  
+   document.getElementById('hold').innerHTML+=card;  }
 });
 </script>
 <style>
  .holder{
-   min-width: 100%;
-   min-height: 414px;
+   width: 100%;
+   height: 450px;
     display: flex;
     overflow-x: auto;
  }
  .cardi{
      margin: 10px;
-     min-width: 300px !important;
-     min-height: 414px;
+     min-width: 300px;
+     max-width: 300px !important;
+     height: 414px;
      box-shadow: 1px 1px 4px 0px;
      border-radius: 4px;
  }
@@ -81,18 +83,18 @@ database.on("child_added", function(data, prevChildKey) {
     max-height: 72px;
     overflow: hidden;
  }
- html,
+ /* html,
 body {
   width: 100%;
   height: 100%;
-}
+} */
 
- .schoolcenter{
+ /* .schoolcenter{
   margin-top: 6%;
   display: flex;
   justify-content: center;
   align-items: center;
- }
+ } */
 </style>
 <body>
 
