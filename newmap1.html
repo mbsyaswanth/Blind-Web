@@ -148,16 +148,16 @@
           allPlaceholder: "Enter School Name",
           sources: [{
             featureLayer: {
-              url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school2/FeatureServer",
+              url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school2/FeatureServer/0?token=zcPQ1kN4v2LbEDXT0SMj1E9Zh8bEYkN5UYNU-en_GKBbEXI4xw1PxmaZ7Tc7mFXEtL7cZwZsHEunFn3Qf2wPeLIukzOfr4PSBHLDGiTZpAs1M-E1peHuUwMeAN8XfRsRzcdI55Il91GYySVw57Jq-07B2u-JCUkjWlwazYzU49bIn6PoIlwrTIlBSXwuBxkPBopiMxybsaSfOOSa8bdCOpjzIFhgBueOgOQ6HaveaGvEVvhpKdrjPN91JXl5KM9E",
               popupTemplate: { // autocasts as new PopupTemplate()
-                title: "School Details </br>{NAME_OF_THE_SCHOOL}, {EMAIL_ADDRESS_OF_THE_SCHOOL}",
+                title: "School Details </br>{NAME_OF_THE_SCHOOL}, {NAME_OF_THE_STATE}",
                 overwriteActions: true
               }
             },
             searchFields: ["NAME_OF_THE_SCHOOL"],
             displayField: "NAME_OF_THE_SCHOOL",
             exactMatch: false,
-            outFields: ["NAME_OF_THE_SCHOOL", "EMAIL_ADDRESS_OF_THE_SCHOOL"],
+            outFields: ["NAME_OF_THE_SCHOOL", "NAME_OF_THE_STATE"],
             name: "Blind Schools",
             placeholder: "example: Visakha Model School for Blind",
           }]
