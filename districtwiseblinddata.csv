@@ -1,1 +1,39 @@
-dist
+Name of the District,State,No of Blind Children,Attending To Schools,Not Attending to Schools,Latitude,Longitude
+North West Delhi, Delhi,759,61,698,28.791200, 77.090469
+North Delhi, Delhi,587,48,539,28.744252, 77.200332
+West Delhi, Delhi,750,46,704,28.682827, 77.043777
+South West Delhi, Delhi,625,53,572,28.596047, 76.995712
+South Delhi, Delhi,768,45,723,28.504368, 77.209945
+North East Delhi, Delhi,520,56,464,28.702101, 77.277236
+East Delhi, Delhi,468,53,415,28.664754, 77.292343
+Central Delhi, Delhi,357,88,269,28.651498, 77.196212
+New Delhi, Delhi,313,81,232,28.612246, 77.234379
+Anantapur,Andhra Pradesh,1958,84,1874,14.667275, 77.600040
+Chittoor,Andhra Pradesh,1830,97,1733,13.383504, 79.050297
+East Godavari,Andhra Pradesh,2346,134,2212,17.311794, 81.959137
+Guntur,Andhra Pradesh,1603,92,1511,16.315651, 80.431769
+Kadapa,Andhra Pradesh,1801,73,1728,14.468191, 78.830401
+Krishna,Andhra Pradesh,3402,112,3290,16.572949, 80.863593
+Kurnool,Andhra Pradesh,1331,62,1269,15.810025, 78.036025
+Nellore,Andhra Pradesh,1792,77,1715,14.434602, 79.978298
+Prakasham,Andhra Pradesh,1985,89,1896,15.625136, 79.498833
+Srikakulam,Andhra Pradesh,2672,191,2481,18.582260, 84.084652
+Visakhapatnam,Andhra Pradesh,2987,592,2395,17.892710, 82.693867
+Vizianagaram,Andhra Pradesh,1520,213,1307,18.111963, 83.397132
+West Godavari,Andhra Pradesh,3121,202,2919,16.925282, 81.444059
+Changlang District,Arunachal Pradesh,116,-,-,27.137253, 95.737513
+Tirap District,Arunachal Pradesh,92,-,-,27.012949, 95.565261
+Anjaw District,Arunachal Pradesh,87,-,-,27.137707, 95.740898
+Lohit District,Arunachal Pradesh,79,-,-,27.916754, 96.161267
+Upper Dibang Valley,Arunachal Pradesh,34,-,-,29.067179, 96.080568
+Lower Dibang Valley,Arunachal Pradesh,63,-,-,28.136968, 95.838467
+West Siang District,Arunachal Pradesh,123,-,-,28.180968, 94.717938
+East Siang District,Arunachal Pradesh,71,-,-,28.163768, 95.179320
+Lower Subansiri District,Arunachal Pradesh,89,-,-,27.616927, 93.836631
+Upper Siang District,Arunachal Pradesh,58,-,-,28.792530, 95.226553
+Kurung Kumey District,Arunachal Pradesh,119,-,-,27.802275, 93.333252
+Upper Subansiri District,Arunachal Pradesh,121,-,-,27.790174, 94.334103
+East Kameng District,Arunachal Pradesh,92,-,-,27.436800, 93.013756
+Papum Pare District,Arunachal Pradesh,104,-,-,27.172981, 93.701007
+Tawang District,Arunachal Pradesh,87,-,-,27.578511, 91.875551
+West Kameng District,Arunachal Pradesh,93,-,-,27.353961, 92.285751
