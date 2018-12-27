@@ -148,7 +148,7 @@
           allPlaceholder: "Enter School Name",
           sources: [{
             featureLayer: {
-              url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0?token=xhafiK-odsukRwzBB-2qt48dNtlODGvpPEmo9GM0bYO-_3kZw3fIeU0JWkLkqgWR61NfY7-IciM_f8FLApjH69rjc6IJVf5qEoVkxOTNZ2WjCRynGDFtSS9LjXXCRxuekaYKCJfOV-a35WFM6O20syYWGXGB2m276Z8wXCCBoxm0FYEIKM_5wPerSJolnsS5w9-UxTWMeqH9EWtWJKVz9GfPbV_je853SUvxIdKVdT90xQCRdlnK7hjblLWPz3Kq",
+              url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school2/FeatureServer",
               popupTemplate: { // autocasts as new PopupTemplate()
                 title: "School Details </br>{NAME_OF_THE_SCHOOL}, {EMAIL_ADDRESS_OF_THE_SCHOOL}",
                 overwriteActions: true
@@ -165,7 +165,7 @@
         
         console.log(school);
 
-        esriRequest('https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=NAME_OF_THE_SCHOOL%2CEMAIL_ADDRESS_OF_THE_SCHOOL&returnHiddenFields=false&returnGeometry=false&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=xhafiK-odsukRwzBB-2qt48dNtlODGvpPEmo9GM0bYO-_3kZw3fIeU0JWkLkqgWR61NfY7-IciM_f8FLApjH69rjc6IJVf5qEoVkxOTNZ2WjCRynGDFtSS9LjXXCRxuekaYKCJfOV-a35WFM6O20syYWGXGB2m276Z8wXCCBoxm0FYEIKM_5wPerSJolnsS5w9-UxTWMeqH9EWtWJKVz9GfPbV_je853SUvxIdKVdT90xQCRdlnK7hjblLWPz3Kq',
+        esriRequest('https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school2/FeatureServer/0/query?where=1%3D1&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=NAME_OF_THE_SCHOOL%2CNAME_OF_THE_STATE&returnHiddenFields=false&returnGeometry=false&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnDistinctValues=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=6U8Vh9PGAYngGUw0c_bP_0wnjR2YjbxQGjQi342AdfKnLfpJ8o_ttefOrxlH85Jzi4826ABoGYbWTLmywSEyWAFOAN98dGbxgZMeQb-5QGuOnasn20_v7a2qDoBcFy2AI52vX37gWyl55ziYxOMiL0D7o0hBcM0kM7VVbacmBvLMA7mXeQ3JbCfMsJkZBAwtrtDsDVCOVi92Q_ne_eU1o9OKB1K_k1nF9E8zU2NstB7zVKWFKCAQHcvAZ_POtLfV',
           {
             responseType: 'json',
             timeout: 15000
