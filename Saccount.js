@@ -58,7 +58,7 @@ function writeTodb() {
       writeUserData(userId, email, name, sid, contactNo, Lat, Long);
       user.sendEmailVerification().then(function() {
         // Email sent.
-        window.alert("An email has been sent to your account. Please verify your Account and login using link provided.");
+        window.alert("An Account has been successfully created. Please login at admin.html and proceed.");
       }).catch(function(error) {
         // An error happened.
         console.log("there is some error " + error.errorMessage);
