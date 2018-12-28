@@ -142,7 +142,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
         console.log("successfully signed out");
-        window.location="http://192.168.1.3:8887/admin.html";
+        window.location="admin.html";
       }).catch(function(error) {
         // An error happened.
         console.log("error signing out "+error.errorMessage);
