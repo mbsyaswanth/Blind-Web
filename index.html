@@ -88,6 +88,9 @@ opacity: 0.7;
     overflow: hidden;
  }
 
+ .card-img-top {
+    height: 200px;
+}
  .navbar-brand{
   font-family: 'Libre Baskerville', serif;
   font-weight: bold;
@@ -123,7 +126,7 @@ opacity: 0.7;
                       <a class="nav-link" href="#analysis">Analysis</a>
                   </li>
                   <li class="nav-item" style="background-color:rgb(114, 112, 112); border-radius:5px;">
-                    <a class="nav-link" style="color:white;" data-toggle="modal" data-target="#schoolRegister" href="#" role="button">Register My School</a>                
+                    <a class="nav-link" style="color:white;" data-toggle="modal" data-target="#schoolhelp" href="#" role="button">Register My School</a>                
                   </li>
           </ul>
         </div>
@@ -163,13 +166,36 @@ opacity: 0.7;
                     is not upto the mark. <br>
                     Educating blind is an initiative to increase this ratio by introducing the schools to the world. <br> <br>
                     Not yet registered? </p>
-                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#schoolRegister" href="#" role="button">Register My School</a></p>
+                <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#schoolhelp" href="#" role="button">Register My School</a></p>
               </div>
             </div>
           </div>
+          <!-- school register help -->
+          <div class="modal fade" id="schoolhelp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      Step 1: Fill the basic details of your school and click on submit.<br>
+                      Step 2: A link will be sent to the registered email id. Click on that link to verify email id go to admin.html, signin your account and fill the facilities provided by the school and other basic information.<br>
+                      Step 3: Click on Update button.(then only you will be able see your school in the website) <br>
+                      Step 4: Students will apply to your school with the help of Email id provided by you so make sure to provide a valid Email id.<br>
+                      Step 5: If you come across through new application in your Email try to contact them within 1-2 working days.<br>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="schoolhelp();">Continue</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           <!-- Modal -->
-    <div class="modal fade" id="schoolRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="schoolRegister" style="overflow-x:hidden;overflow-y:auto;" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog"  role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalCenterTitle">School Registration</h5>
@@ -209,10 +235,6 @@ opacity: 0.7;
                   </i>
             </div>      
                   <small id="SlocationHelp" class="form-text text-muted">Click on location icon to capture school location.</small>
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
           <button onclick="createAccount()" type="submit" class="btn btn-primary">Submit</button>
         </div>
@@ -345,6 +367,12 @@ be graduated from India rather than foreign universities.</p>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script>
+     function schoolhelp(){
+      $('#schoolhelp').modal('hide');
+      $('#schoolRegister').modal('show');
+     }
+    </script>
     <script src="bootstrap/js/holder.min.js"></script>
     <script>
         $(document).ready(function () {

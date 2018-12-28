@@ -238,9 +238,10 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
         var ten_stu=document.getElementById("tenclassstu").value;
         var ebs=document.getElementById("ebs").value;
         writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, addr2, state, dist, country, zip, image, desc, hostel, mess, ground, pskl, ss, tno, cno, nos, ten_stu, ebs);
-        window.alert("Successfully updated your details");
+        $('#success').modal('show');
         }).catch(function(error) {
           // Handle any errors
+          window.alert("failure");
         });
 
         // console.log(url);

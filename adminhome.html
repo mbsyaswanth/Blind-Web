@@ -18,15 +18,41 @@
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-secondary border-bottom shadow fixed-top">
                 <h5 class="my-0 mr-md-auto font-weight-normal text-white">Educating Blind</h5>
                 <nav class="my-2 my-md-0 mr-md-3">
-                  <a class="p-2 text-white" href="#">Edit/Update</a>
-                  <a class="p-2 text-white" href="#">View Page</a>
+                  <!-- <a class="p-2 text-white" href="#">Edit/Update</a>
+                  <a class="p-2 text-white" href="#">View Page</a> -->
                 </nav>
                 <a class="btn btn-outline-light" onclick="signout()" href="#">Logout</a>
+                
         </div>
+        <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    Step 1: The basic details you filled before will be auto populated here.<br>
+                    Step 2: Fill all other details in this form and click on Update button.(then only you will be able see your school in our website) <br>
+                    Step 3: Students will apply to your school with the help of Email id provided by you. So make sure to provide a valid Email id.<br>
+                    Step 4: If you come across through new application in your Email try to contact them within 1-2 working days.<br>
+                    <p><b>Note:</b>All fields are mandatory. </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </header>   
      <div class="container" style="margin-bottom:2%;">
             <div class="col-md-12 order-md-1">
-                    <h4 class="mb-3">School Details</h4>
+                    <h4 class="mb-3" style="display:inline-block;">School Details</h4>
+                    <span  style="cursor:pointer;" class="material-icons  btn-outline-dark" data-toggle="modal" data-target="#help">
+                        help_outline
+                    </span>
                     <div class="needs-validation" novalidate="">
                       <div class="row">
                         <div class="col-md-6 mb-3">
@@ -258,7 +284,23 @@
                     </div>
                   </div>
      </div>
-
+     <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Successfully updated your details.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
      <script>
             // Example starter JavaScript for disabling form submissions if there are invalid fields
             (function() {
@@ -289,14 +331,20 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
-    <script src="admin.js"></script>
+    
     <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
     <script>window.jQuery || document.write('<script src="bootstrap/js/jquery-slim.min.js"><\/script>')</script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(window).on('load',function(){
+          $('#help').modal('show');
+      });
+  </script>
+  <script src="admin.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="bootstrap/js/holder.min.js"></script>
     <script src="https://js.arcgis.com/4.7/"></script>
-    <script src="geodb.js"></script>
+    <!-- <script src="geodb.js"></script> -->
 </body>
 </html>
