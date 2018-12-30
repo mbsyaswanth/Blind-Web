@@ -40,7 +40,6 @@ var geoSuccess = function(position) {
   startPos = position;
   document.getElementById('Slat').value = startPos.coords.latitude;
   document.getElementById('Slong').value = startPos.coords.longitude;
-  document.getElementById("Slocation").value="location captured";
 };
 var geoError = function(error) {
   switch(error.code) {
