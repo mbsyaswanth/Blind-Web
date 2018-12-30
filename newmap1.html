@@ -16,6 +16,7 @@
     <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script type="text/javascript">
       $(window).on('load',function(){
           $('#help').modal('show');
@@ -260,7 +261,7 @@
                               <small id="locationHelp" class="form-text text-muted">Click on location icon to capture your location.</small>
                         </div>  
                       </div>
-                      <button type="submit" class="btn btn-primary" onclick="mail()">Submit</button>
+                      <button type="submit" class="btn btn-primary" onclick="mail(); alert();">Submit</button>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -269,6 +270,11 @@
                   </div>
                 </div>
     </div>
+    <script>
+    function alert() {
+            swal("Successfully submitted", "The respective school will get back to you within 2-3 working days", "success");
+
+        }</script>
 
     <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
       <div class="modal-dialog modal-dialog-centered" role="document">
