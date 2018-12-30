@@ -141,8 +141,16 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
   function signout(){
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
+        swal({
+          title: "Loged out!",
+          text: "You will be redirected to Educating Blind home page.",
+          icon: "success",
+          button: "Continue",
+        }).then(function(){
+          window.location.href="/";
+        });
         console.log("successfully signed out");
-        window.location="admin.html";
+        
       }).catch(function(error) {
         // An error happened.
         console.log("error signing out "+error.errorMessage);

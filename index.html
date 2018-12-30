@@ -135,9 +135,9 @@ opacity: 0.7;
     </header>
 
     <main  role="main" id="full">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carouselExampleIndicators" class="carousel slide" data-interval="25000" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-interval="6000" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
@@ -148,11 +148,11 @@ opacity: 0.7;
               <div class="carousel-caption text-left">
                 <h1>Register blind with us</h1>
                 <p>
-                    Only 40000 children are into schools out of 6 lakhs blind children in India. This is not due to
+                    Only 40,000 children are into schools out of 6 lakhs blind children in India. This is not due to
                     lack of interest but due to lack of awareness. <br>
-                    Educating blind serves as an important tool between blind children and blind schools. <br>
-                    Kindly help us in spreading the awareness by filling the application form below when u come
-                    across a child like one mentioned. Please help in fulfilling their dreams.</p>
+                    <b>Educating Blind</b> serves as an important tool between blind children and blind schools. <br>
+                    Kindly help us in spreading the awareness by filling the application form below when you come
+                    across a blind child. Please help in fulfilling their dreams.</p>
                 <p><a class="btn btn-lg btn-primary" href="#studentregistration" role="button">Register a Blind</a></p>
               </div>
             </div>
@@ -165,9 +165,10 @@ opacity: 0.7;
                 <h1>Team up with us</h1>
                 <p>Despite the number of blind schools being less in number, the ratio of blind students getting admitted into schools
                     is not upto the mark. <br>
-                    Educating blind is an initiative to increase this ratio by introducing the schools to the world. <br> <br>
+                    <b>Educating Blind</b> is an initiative to increase this ratio by introducing the schools to the world. <br> <br>
                     Not yet registered? </p>
                 <p><a class="btn btn-lg btn-primary" data-toggle="modal" data-target="#schoolhelp" href="#" role="button">Register My School</a></p>
+                <small>Already Registered? click <a href="admin.html">here</a></small>
               </div>
             </div>
           </div>
@@ -176,17 +177,16 @@ opacity: 0.7;
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">How it Works?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                      Step 1: Fill the basic details of your school and click on submit.<br>
-                      Step 2: A link will be sent to the registered email id. Click on that link to verify email id go to admin.html, signin your account and fill the facilities provided by the school and other basic information.<br>
-                      Step 3: Click on Update button.(then only you will be able see your school in the website) <br>
-                      Step 4: Students will apply to your school with the help of Email id provided by you so make sure to provide a valid Email id.<br>
-                      Step 5: If you come across through new application in your Email try to contact them within 1-2 working days.<br>
+                      Step 1: Fill the basic details of your school and register with us.<br><br>
+                      Step 2: On the next screen, you will tell us more details about your school and we will feature you on our website.<br><br>
+                      Step 3: We will notify you about new admissions through email you registered with us.<br><br>
+                      Step 4: Make sure you contact new admissions within 1-2 working days.<br><br>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="schoolhelp();">Continue</button>
@@ -303,11 +303,15 @@ the Indian government to come across these statistics and establish institutes t
 higher secondary education and degree level education so that the future Srikanth Bolla&#39;s will
 be graduated from India rather than foreign universities.</p>
       </div>
-      <div class="container staticmap chil flexcenter text-center" id="map1" style="padding-top: 40px">
+      <div class="container staticmap chil flexcenter text-center" id="map1" style="padding-top: 50px;margin-top:3%;">
           <h2> Student Statistics </h2> <hr style="margin-bottom:15px;">
-        <iframe src="js4.9mapstatic.html" frameborder="0" height="100%" width="100%"></iframe>
+          <p style="margin:0; padding:15px;">
+              The following map shows the states demographics of blind schools and children according to
+              the 2011 census.
+         </p>
+        <iframe src="js4.9mapstatic.html" frameborder="0" height="95%" width="100%"></iframe>
       </div>
-      <div class="container schoolparent" id="studentregistration" style="padding-top:100px">
+      <div class="container schoolparent" id="studentregistration" style="padding-top:56px;margin-top:6%;">
             <div class="schoolmatter container flexcenter text-center"><br><br>
                 <h2 style="margin-bottom:5%;">Admit a Blind Student<hr></h2><br>
                    <p> India constitutes 1/3rd of the entire blind population in this world. Out of which only 10-15%
@@ -332,7 +336,7 @@ be graduated from India rather than foreign universities.</p>
             
       </div>
     
-      <div class="schools container" id="school" style="padding-top: 100px">
+      <div class="schools container" id="school" style="margin-top:5%; padding-top:56px;">
         <h2 class="flexcenter text-center" >Blind Schools</h2><hr><br>
 
         <p>The following are the schools registered with us. Click on 'More Details' to find out more about each school.</p><br>
@@ -343,7 +347,7 @@ be graduated from India rather than foreign universities.</p>
         </div>      
       </div>
       
-      <div class="chil container" id="analysis" style="padding-top: 70px">
+      <div class="chil container" id="analysis" style="padding-top: 56px;margin-top:5%;">
           
           <div class="schoolmatter container flexcenter text-center"><br><br>
             <h2 style="margin-bottom:5%;">Analysis<hr></h2><br>
@@ -392,8 +396,9 @@ be graduated from India rather than foreign universities.</p>
     <script src="location.js"> </script>
     <script src="load.js"></script>
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="analysismail.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="analysismail.js"></script>
+    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

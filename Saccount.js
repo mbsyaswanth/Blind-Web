@@ -21,13 +21,22 @@ var config = {
         console.log("error creating account"+errorCode);
         window.alert("error creating account :"+errorMessage);
   });
-  var user=firebase.auth().currentUser; 
-  if(user){
-  //user signed in
-  writeTodb();
-  } else{
-  // no user signed in
-  }
+  // var user=firebase.auth().currentUser; 
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      writeTodb();
+    } else {
+      // User is signed out.
+      // ...
+    }
+  });
+  // if(user){
+  // //user signed in
+  // writeTodb();
+  // } else{
+  // // no user signed in
+  // }
 }
 // function to send school data to database
 function writeUserData(userId, email, name, sid, contactNo, Lat, Long) {
@@ -40,11 +49,29 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long) {
           latitude : Lat,
           longitude : Long
       }
+    }).then(function(){
+      //signout of this account
+      
+     swal({
+      title: "Good job! You are successfully registered with us.",
+      text: " You are one step behind for getting featured on Educating Blind. Go ahead and tell us more about your school in the next page.",
+      icon: "success",
+      button:"continue",
+    }).then(function(){
+      window.location.href="adminhome.html";
+    });
+    //  firebase.auth().signOut().then(function() {
+    //   // Sign-out successful.
+    //   alert("sign out successful");
+    // }).catch(function(error) {
+    //   // An error happened.
+    // });
+    }).catch(function(error){
+      alert("failed to write data");
     });
   }
 // function that observes for change in authentication state 
 function writeTodb() {
-    // send user the verification email
     var user=firebase.auth().currentUser;
     if (user) {
       // User is signed in.
@@ -56,21 +83,9 @@ function writeTodb() {
       var Lat=document.getElementById("Slat").value;
       var Long=document.getElementById("Slong").value;
       writeUserData(userId, email, name, sid, contactNo, Lat, Long);
-      user.sendEmailVerification().then(function() {
-        // Email sent.
-        window.alert("An Account has been successfully created. Please login at admin.html and proceed.");
-      }).catch(function(error) {
-        // An error happened.
-        console.log("there is some error " + error.errorMessage);
-      });
-      //signout of this account
-      firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-      }).catch(function(error) {
-        // An error happened.
-      });
     } else {
       // No user is signed in.
       console.log("no user signed in yar");
+      return false;
     }
   }
