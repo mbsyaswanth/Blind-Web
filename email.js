@@ -7,9 +7,10 @@ function mail(){
     var gname=document.getElementById('gname').value;
     var gemail=document.getElementById('gemail').value;
     var gphone=document.getElementById('gphone').value;
-    var schoolname=document.getElementById("stateSelect").value;
+    var schoolname=document.getElementById("schoolSelect").value;
     console.log(schoolname);
     var mail=school[schoolname];
+    console.log("to email:"+mail);
     var msg='A new student wants to join your school. The following are his details';
     msg+="<br/><hr><table><tr><td>Name of Student</td><td>: "+name+"</td></tr><tr><td>Email Address</td>";
     msg+="<td>: "+semail+"</td></tr><tr><td>Phone No. of Student</td><td>: "+sphone+"</td></tr>";
@@ -17,14 +18,16 @@ function mail(){
     msg+="<tr><td>Name of Gaurdian</td><td>: "+gname+"</td></tr><tr><td>Email Address of Gaurdian</td><td>: "+gemail+"</td></tr>";
     msg+="<tr><td>Phone No. of Gaurdian</td><td>: "+gphone+"</td></tr></table>";
     Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "mbs.yaswanth@gmail.com",
-        Password : "0fca9467-93db-4c53-b4bc-1007fe6a53e9",
+        Host : "smtp.gmail.com",
+        Username : "educatingblind@gmail.com",
+        Password : "abcd@1234",
         To : mail,
-        From : "mbs.yaswanth@gmail.com",
-        Subject : "This is the subject testing",
+        From : "educatingblind@gmail.com",
+        Subject : "New student from Educating Blind",
         Body : msg
     }).then(
-      message => alert(message)
+      message => console.log(message)
     );
 }
+// smtp.elasticemail.com
+// 0fca9467-93db-4c53-b4bc-1007fe6a53e9

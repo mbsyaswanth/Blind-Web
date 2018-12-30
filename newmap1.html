@@ -177,7 +177,7 @@
             timeout: 15000
           }).then(lang.hitch(this, function (response) {
             var store2 = new Memory({ data: [] });
-             registry.byId("stateSelect").set('store', store2);
+             registry.byId("schoolSelect").set('store', store2);
             var data = array.map(response.data.features, lang.hitch(this, function (feat, index) {
               var name = feat.attributes.NAME_OF_THE_SCHOOL;
               var email = feat.attributes.EMAIL_ADDRESS_OF_THE_SCHOOL;
@@ -192,7 +192,7 @@
               console.log(dataItem.id);
             }));
             store2 = new Memory({ data: data });
-            registry.byId("stateSelect").set('store', store2);
+            registry.byId("schoolSelect").set('store', store2);
           }));
          
       });
@@ -250,17 +250,6 @@
                         <label for="medicalReport">Medical Report of Student</label>
                         <input type="file" class="form-control-file" id="medicalReport" placeholder="upload medical report stating that you are blind">
                       </div>
-                      <div class="form-group">
-                        <label for="location">Location</label>
-                        <div class="form-row">
-                            <input type="text" class="" name="longitude" id="lat">
-                            <input type="text" class="" name="longitude" id="long">
-                              <i class="material-icons md-24" onclick="getLocation()">
-                                  my_location
-                              </i>
-                              <small id="locationHelp" class="form-text text-muted">Click on location icon to capture your location.</small>
-                        </div>  
-                      </div>
                       <button type="submit" class="btn btn-primary" onclick="mail(); alert();">Submit</button>
                     </div>
                     <div class="modal-footer">
@@ -274,7 +263,8 @@
     function alert() {
             swal("Successfully submitted", "The respective school will get back to you within 2-3 working days", "success");
 
-        }</script>
+        }
+    </script>
 
     <div class="modal fade" id="help" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" >
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -304,7 +294,7 @@ Step 6: After clicking on submit button your details will be sent to the respect
     style="padding:0px;margin:0px;">
     <div id="header" class="row" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'" style="overflow:hidden;border:none;border-bottom: 3px solid rgb(10, 10, 10);font-family: Windows;font-size:14pt; color: #FFFFFF;background: #302d2d; ">
       <div class="col-11">Select a School:
-      <input id="stateSelect" data-dojo-type="dijit/form/ComboBox" placeholder="Select Blind School" data-dojo-props="maxHeight: 200" />
+      <input id="schoolSelect" data-dojo-type="dijit/form/ComboBox" placeholder="Select Blind School" data-dojo-props="maxHeight: 200" autocomplete="nope" />
         <button type="button" id="stateabbr" class="btn btn-primary" data-toggle="modal" data-target="#continue">
                 Continue
         </button>

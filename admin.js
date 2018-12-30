@@ -29,7 +29,7 @@ var config = {
         document.getElementById("sContact").value=snapshot.val().phone;
         document.getElementById("lat").value=snapshot.val().location.latitude;
         document.getElementById("long").value=snapshot.val().location.longitude;
-        if(snapshot.val().addressL1){
+        // if(snapshot.val().addressL1){
         document.getElementById("address").value=snapshot.val().addressL1;
         document.getElementById("address2").value=snapshot.val().addressL2;
         document.getElementById("state").value=snapshot.val().state;
@@ -43,7 +43,7 @@ var config = {
         document.getElementById("tenclassstu").value=snapshot.val().tenth_stu;
         ebs=document.getElementById("ebs").value=snapshot.val().ebs;
         // file url needed
-        //var URL=document.getElementById("sphoto").value;
+        //document.getElementById("sphoto").value=snapshot.val().sPhotoURL;
         document.getElementById("sdesc").value=snapshot.val().sDesc;
           if(snapshot.val().hostel=="yes"){
             document.getElementsByName("hostel")[0].checked=true;
@@ -79,7 +79,7 @@ var config = {
           else {
             document.getElementsByName("sschool")[1].checked=true;
           }
-        }
+        // }
 
      }, function (error) {
         console.log("Error: " + error.code);

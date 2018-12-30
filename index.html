@@ -343,8 +343,41 @@ be graduated from India rather than foreign universities.</p>
       </div>
       
       <div class="chil container" id="analysis">
-          <h2>Analysis</h2><hr>
-         <iframe src="http://arcg.is/1XOLCr" frameborder="0" height="90%" width="100%"></iframe>
+          
+          <div class="schoolmatter container flexcenter text-center"><br><br>
+            <h2 style="margin-bottom:5%;">Analysis<hr></h2><br>
+            <p style="line-height:2rem;">
+                Educating Blind provides the current statistics and analyses the present juncture of Blind Children and Blind 
+              Schools for taking further steps in the field of Education for Visually 
+              impaired children. We strongly believe that this analysis will be helpful for the respective authorities.
+              </p> <br>
+      <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#analysismail">
+    View Analysis
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="analysismail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Give us your Email</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Share with us your email address and we will mail you the analysis link.</p>
+           <input type="email" class="form-control" id="sendAnalyEmail" placeholder="enter your email here">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="maillink(); $('#analysismail').modal('hide'); swal({title: 'Check your inbox', icon: 'success', });">Send Me</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
       </div>
       
       
@@ -357,6 +390,9 @@ be graduated from India rather than foreign universities.</p>
     <!-- location script -->
     <script src="location.js"> </script>
     <script src="load.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="analysismail.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
