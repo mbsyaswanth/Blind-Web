@@ -19,7 +19,7 @@
      var card="<div class='cardi'><img class='card-img-top' src='"+newSchool.sPhotoURL+"' alt='Card image cap'><div class='card-body'><h5 class='card-title' style='margin-bottom:0px;'>";
      card=card+newSchool.schoolName;
      card+="</h5><small><i class='material-icons' style='font-size:15px;'>location_on </i>"+newSchool.district+", "+newSchool.state;
-     card+= '</small><p class="card-text">'+newSchool.sDesc+'</p><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#d'+newSchool.sId+'">More Details</a></div>'; 
+     card+= '</small><p class="card-text">'+newSchool.sDesc+'</p><a href="#" class="btn btn-primary pos" data-toggle="modal" data-target="#d'+newSchool.sId+'">More Details</a></div>'; 
      card+= ' <div class="modal fade" id="d'+newSchool.sId+'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-header">';
      card+='<div class="modal-title"><h5 class="modal-title" id="exampleModalCenterTitle">'+newSchool.schoolName+'</h5><small> <i class="material-icons" style="font-size:15px;">location_on</i>'+newSchool.district+', '+newSchool.state+'</small></div>';
      card+='<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
