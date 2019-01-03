@@ -1,0 +1,112 @@
+{
+    "dir": "ltr",
+    "lang": "English",
+    "name": "Blind Web",
+    "scope": "/Blind-Web/",
+    "display": "standalone",
+    "start_url": "https://mbsyaswanth.github.io/Blind-Web/",
+    "short_name": "BlindWeb",
+    "theme_color": "transparent",
+    "description": "Educating Blind serves as an important tool between blind children and blind schools.",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/ffe23207-5eaf-d458-2c71-f2a6357a9b2e.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/817ac6a8-3250-cb5a-d565-3856282e375e.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/windows10/SplashScreen.scale-200.png.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/437c3d09-20ad-7f95-2d3e-63b6af8c068d.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/1a164ddf-cc27-d8f5-96cc-75ae076e80d9.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/afc89173-3fa3-897e-24cd-8513f1159158.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/01435748-60fa-4b52-703f-b1bff64c77d1.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/20e54a3d-9a3e-8c65-2328-ff7cd2004ea2.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/50cf50b5-0ef6-4ae5-e47f-eab4654e8eee.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/89c4223b-4997-59b2-a2f7-0792112f64d4.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/20613bed-f28f-e4c3-5e5a-2a16fbefe346.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/f12d5a05-c0a6-03bd-a8c1-650526ca3494.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/1cb046c0-859c-2cf0-fe59-0115714d1f0a.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/3174a085-fae3-0399-1f02-203841842358.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ios/ios-appicon-1024-1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/bd5196a4-73c3-7267-4fdf-78ec0ca7db5b.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/707f5386-8bad-216f-9cdd-3c32a4ff3260.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/45c16440-ee16-36df-96af-7ad3bf00e0a4.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/e4c429e2-d012-f372-354b-e6c00dce7f23.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}
