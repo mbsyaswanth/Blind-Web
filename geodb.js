@@ -23,7 +23,7 @@ require([
     on
 ) {
         var featureLayer = new FeatureLayer({
-            url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0?token=0CndUfsN8SOjYxhnrNAI_NpC-MevleciJkiNAaP8TwUnSwl2qtLIYATWlaO6rNshcWYr42K7cJvrXvB6nkHNcf2uI4QASUF9pJAYbLcY9VMBIG9KV548GPKvqZhvo2uTFzH0wYoBSQBkKLP4xrJ0ZcElERI6D6m4FRDngfyZq40gkRY4MtlPTaeUQNLOi5X93zQNNcTg3Wo9iyw89pHAnbt1UiOGiaJBRdyEzEnlQmMR56vSuUppdO6FRNbmQqNu",
+            url: "https://services9.arcgis.com/2882Ggz2LB0PQSyP/arcgis/rest/services/school/FeatureServer/0?token=iLQQmXt9_h8cCP2k67wzt5AmzaSNxUW90zoJHgLEAidBVcVY9Hgc8gB_TbOSRE4xPTQWRlIdZ73sYXJi-_VmHCr1N0MZLLR2ZPCxRa5Xly6kRFRZkwvw7m4cwuoWplIclj7ibyvpQp-OjfMgaeqptJyOQxfBqF4p8NI_XlH5e_cR38tySvUL0MtmGTOJFj5RWBsfjNL5PxXOwlc5l7ZWx8hHz5Coy7KUNdrzsM5dfzWx2BWyVhLCxLENaMkxEcbU",
             outFields: ["*"],
         });
 
@@ -32,8 +32,8 @@ require([
             var feature = new Graphic();
             var geometry = new Point({
                 type: "point",
-                x: document.getElementById('lat').value,
-                y: document.getElementById('long').value,
+                x: document.getElementById('long').value,
+                y: document.getElementById('lat').value,
                 //    spatialReference: new SpatialReference({wkid: 32644})
             });
 
