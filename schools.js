@@ -29,7 +29,9 @@
      card+='<div class="row"><div class="col-sm-6 p">Secondary School</div><div class="col-sm-6">'+newSchool.sskl+'</div> </div><div class="row"> <div class="col-sm-6 p">No. of Class Rooms.</div><div class="col-sm-6">'+newSchool.cno+'</div></div><div class="row"><div class="col-sm-6 p">No. of Teachers </div><div class="col-sm-6">'+newSchool.tno+'</div></div>';
      card+='<hr><h6>About School</h6> <hr> <div><p id="sdesc">'+newSchool.sDesc+'</p></div><hr><h6>Contact Details</h6><hr> <div class="row">';
      card+='<div class="col-sm-4 p">Email</div><div class="col-sm-8">'+newSchool.emailId+'</div></div><div class="row"><div class="col-sm-4 p">';
-     card+='Contact No.</div><div class="col-sm-8">'+newSchool.phone+'</div></div></div></div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">';
+     card+='Contact No.</div><div class="col-sm-8">'+newSchool.phone+'</div></div></div></div></div></div><div class="modal-footer"><button type="button"';
+     card+='onclick="document.getElementById(&apos;schoolEmail&apos;).value=&apos;'+newSchool.emailId+'&apos;" id="stateabbr" class="btn btn-primary" data-toggle="modal" data-target="#continue">Apply</button><button type="button" class="btn btn-secondary" data-dismiss="modal">';
      card+='Close</button></div></div></div></div></div>';
      document.getElementById('hold').innerHTML+=card;  }
   });
+ 

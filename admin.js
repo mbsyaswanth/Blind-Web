@@ -49,7 +49,7 @@ var config = {
             document.getElementsByName("hostel")[0].checked=true;
           }
           else {
-            document.getElementsByC
+            document.getElementsByName("hostel")[1].checked=true;
           }
 
           if(snapshot.val().mess=="yes"){
