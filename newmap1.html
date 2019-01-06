@@ -261,8 +261,33 @@
     </div>
     <script>
     function alert() {
-            swal("Successfully submitted", "The respective school will get back to you within 2-3 working days", "success");
-
+      swal({
+  title: "Successfully submitted",
+  text: "The respective school will get back to you within 2-3 working days",
+  icon: "success",
+  buttons: {
+  cancel: {
+    text: "Stay on this page",
+    value: false,
+    visible: true,
+    className: "",
+    closeModal: true,
+  },
+  confirm: {
+    text: "Go to home page",
+    value: true,
+    visible: true,
+    className: "",
+    closeModal: true
+  }
+},
+}).then((value) => {
+  if (value===false) {
+    
+  } else if(value===true) {
+    window.close();
+  }
+});
         }
     </script>
 
