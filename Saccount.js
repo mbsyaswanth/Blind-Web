@@ -19,7 +19,12 @@ var config = {
     var errorMessage = error.message;
     // ...
         console.log("error creating account"+errorCode);
-        window.alert("error creating account :"+errorMessage);
+        swal({
+          title: "Error creating account",
+          text: errorCode,
+          icon: "error",
+        });
+        //window.alert("error creating account :"+errorMessage);
   });
   // var user=firebase.auth().currentUser; 
   firebase.auth().onAuthStateChanged(function(user) {
