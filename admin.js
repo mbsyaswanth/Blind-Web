@@ -147,7 +147,7 @@ function writeUserData(userId, email, name, sid, contactNo, Lat, Long, addr1, ad
           icon: "success",
           button: "Continue",
         }).then(function(){
-          window.location.href="/";
+          window.location.href="/Blind-Web/index.html";
         });
         console.log("successfully signed out");
         
