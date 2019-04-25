@@ -3,9 +3,9 @@ function maillink(){
     console.log("to email:"+mail);
     var msg='Here is the blind schools analysis link  http://arcg.is/1XOLCr';
     Email.send({
-      Host : "smtp.sendgrid.net",
-      Username : "apikey",
-      Password : "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",
+      Host : "smtp.gmail.com",
+      Username : "educatingblind@gmail.com",
+      Password : "abcd@1234",
         To : mail,
         From : "educatingblind@gmail.com",
         Subject : "You requested for analysis link from Educating Blind",

@@ -18,9 +18,9 @@ function mail(){
     msg+="<tr><td>Name of Gaurdian</td><td>: "+gname+"</td></tr><tr><td>Email Address of Gaurdian</td><td>: "+gemail+"</td></tr>";
     msg+="<tr><td>Phone No. of Gaurdian</td><td>: "+gphone+"</td></tr></table>";
     Email.send({
-      Host : "smtp.sendgrid.net",
-      Username : "apikey",
-      Password : "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",
+      Host : "smtp.gmail.com",
+      Username : "educatingblind@gmail.com",
+      Password : "abcd@1234",
         To : mail,
         From : "educatingblind@gmail.com",
         Subject : "New student from Educating Blind",
